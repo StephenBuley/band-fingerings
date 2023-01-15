@@ -2,12 +2,21 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="./src/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <title>French Horn Fingerings</title>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
+    <h1 class="title">French Horn Fingerings</h1>
+    <img src="./public/assets/A4.png" alt="A4" />
+    <div class="buttons">
+      <div class="btn" tabindex="1">T</div>
+      <div class="btn" tabindex="2">1</div>
+      <div class="btn" tabindex="3">2</div>
+      <div class="btn" tabindex="4">3</div>
+    </div>
+    <button class="btn btn-submit">Check Answer</button>
+    <div class="display"></div>
+    <script type="module" src="./src/main.ts"></script>
   </body>
 </html>
