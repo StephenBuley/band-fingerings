@@ -22,4 +22,5 @@ export type TFingerings = {
 export type TButtonProps = {
   text: string
   tabIndex: number
+  type: "input" | "submit"
 }
