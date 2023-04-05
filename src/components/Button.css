@@ -15,6 +15,7 @@
 }
 
 .btn-submit {
-  width: auto;
+  width: fit-content;
   margin-top: 20px;
+  padding: 1px 6px;
 }

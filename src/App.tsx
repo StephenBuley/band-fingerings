@@ -46,7 +46,7 @@ function App() {
         <Button text="2" type="input" tabIndex={3} />
         <Button text="3" type="input" tabIndex={4} />
       </div>
-      <button className="btn btn-submit">Check Answer</button>
+      <Button text="Check Answer" type="submit" tabIndex={5} />
       <div className="display"></div>
     </div>
   )
