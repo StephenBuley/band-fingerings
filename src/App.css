@@ -12,7 +12,3 @@ body {
   display: flex;
   gap: 4px;
 }
-
-.selected {
-  background-color: lightseagreen;
-}
