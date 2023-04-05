@@ -18,3 +18,8 @@ export type TFrenchHornFingerings = {
 export type TFingerings = {
   frenchHorn: TFrenchHornFingerings
 }
+
+export type TButtonProps = {
+  text: string
+  tabIndex: number
+}
