@@ -81,7 +81,7 @@ function App() {
   return (
     <div>
       <h1 className="title">French Horn Fingerings</h1>
-      <img src={`/src/assets/${note}.png`} alt={note} />
+      <img src={`src/assets/${note}.png`} alt={note} />
       <div className="buttons">
         <Button
           text="T"
