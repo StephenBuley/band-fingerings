@@ -5,6 +5,7 @@ export type TFrenchHornFingerings = {
   "3": string[]
   "12": string[]
   "23": string[]
+  "13": string[]
   "123": string[]
   T: string[]
   T1: string[]
@@ -12,6 +13,7 @@ export type TFrenchHornFingerings = {
   T3: string[]
   T12: string[]
   T23: string[]
+  T13: string[]
   T123: string[]
 }
 

@@ -8,6 +8,7 @@ export const fingerings: TFingerings = {
     "3": [],
     "12": ["Db4"],
     "23": [],
+    "13": [],
     "123": [],
     T: [],
     T1: ["Bb4"],
@@ -15,6 +16,7 @@ export const fingerings: TFingerings = {
     T3: ["A4"],
     T12: ["A4"],
     T23: ["Ab4"],
+    T13: [],
     T123: [],
   },
 }

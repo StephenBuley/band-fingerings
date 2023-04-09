@@ -1,11 +1,13 @@
 import "./App.css"
 import { useState, useEffect } from "react"
 import { Button } from "./components/Button"
-import { TButtonProps } from "./types"
+import { TButtonProps, TFrenchHornFingerings } from "./types"
+import { fingerings } from "./fingerings"
 
 function App() {
   const [note, setNote] = useState("")
   const [selected, setSelected] = useState<string[]>([])
+  const [displayText, setDisplayText] = useState("")
 
   useEffect(() => {
     // this sets a random note on refresh
@@ -37,22 +39,43 @@ function App() {
     const randomNum2 = Math.floor(Math.random() * numbers.length)
     // setNote(letters[randomNum1] + numbers[randomNum2]) when I add more pngs. For now, only A4
     setNote("A4")
-  })
+  }, [])
 
   function handleClick(type: TButtonProps["type"], text: string) {
     type === "submit"
-      ? console.log("submit")
+      ? // then submit answer and display whether or not it was correct
+        checkAnswer()
       : setSelected((prevState) => {
           if (prevState.includes(text)) {
             // this means the button was already in selected, so we need to "unselect" it
-            return [...prevState.filter((button) => button !== text)]
+            return unselectButton(prevState, text)
           } else {
             // the button was not selected, so we need to select it
-            return [...prevState, text].sort(
-              (a, b) => (a.charCodeAt(0) > 65 ? -1 : parseInt(a) - parseInt(b)) // this sorting algorithm puts T first, then numbers in ascending order
-            )
+            return selectButton(prevState, text)
           }
         })
+  }
+
+  function checkAnswer() {
+    if (
+      fingerings.frenchHorn[
+        selected.join("") as keyof TFrenchHornFingerings
+      ].includes(note)
+    ) {
+      setDisplayText("Correct!")
+    } else {
+      setDisplayText("Try Again!")
+    }
+  }
+
+  function unselectButton(prevState: string[], text: string) {
+    return [...prevState.filter((button) => button !== text)]
+  }
+
+  function selectButton(prevState: string[], text: string) {
+    return [...prevState, text].sort(
+      (a, b) => (a.charCodeAt(0) > 65 ? -1 : parseInt(a) - parseInt(b)) // this sorting algorithm puts T first, then numbers in ascending order
+    )
   }
 
   return (
@@ -96,7 +119,7 @@ function App() {
         handleClick={handleClick}
         selected={selected}
       />
-      <div className="display">Selected: {selected}</div>
+      <div className="display">{displayText}</div>
     </div>
   )
 }
