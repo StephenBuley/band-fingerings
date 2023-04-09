@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import { Button } from "./components/Button"
 import { TButtonProps, TFrenchHornFingerings } from "./types"
 import { fingerings } from "./fingerings"
+import imgURL from "./assets/A4.png"
 
 function App() {
   const [note, setNote] = useState("")
@@ -81,7 +82,7 @@ function App() {
   return (
     <div>
       <h1 className="title">French Horn Fingerings</h1>
-      <img src={`src/assets/${note}.png`} alt={note} />
+      <img src={imgURL} alt={note} />
       <div className="buttons">
         <Button
           text="T"
