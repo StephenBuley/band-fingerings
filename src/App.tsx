@@ -1,7 +1,7 @@
 import "./App.css"
 import { useState, useEffect } from "react"
 import { Button } from "./components/Button"
-import { TButtonProps, TFrenchHornFingerings } from "./types"
+import { TFrenchHornFingerings } from "./types"
 import { fingerings } from "./fingerings"
 
 function App() {
