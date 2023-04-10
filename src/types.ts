@@ -25,6 +25,7 @@ export type TButtonProps = {
   text: string
   tabIndex: number
   type: "input" | "submit"
-  handleClick: (type: TButtonProps["type"], text: string) => void
+  handleClick?: (text: string) => void
+  handleSubmitClick?: () => void
   selected: string[]
 }

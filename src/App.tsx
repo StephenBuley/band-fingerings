@@ -12,48 +12,45 @@ function App() {
   useEffect(() => {
     // this sets a random note on refresh
     const letters = [
+      // some commented out to deal with fingerings, haven't decided whether to include them or not
       "A",
-      "A#",
+      // "A#",
       "Ab",
       "B",
-      "B#",
+      // "B#",
       "Bb",
       "C",
-      "C#",
+      // "C#",
       "Cb",
       "D",
-      "D#",
+      // "D#",
       "Db",
       "E",
-      "E#",
+      // "E#",
       "Eb",
       "F",
-      "F#",
+      // "F#",
       "Fb",
       "G",
-      "G#",
+      // "G#",
       "Gb",
     ]
-    const numbers = [1, 2, 3, 4, 5, 6, 7]
+    const numbers = [4] // right now just 4, until fingerings update
     const randomNum1 = Math.floor(Math.random() * letters.length)
     const randomNum2 = Math.floor(Math.random() * numbers.length)
-    // setNote(letters[randomNum1] + numbers[randomNum2]) when I add more pngs. For now, only A4
-    setNote("A4")
+    setNote(`${letters[randomNum1]}${numbers[randomNum2]}`)
   }, [])
 
-  function handleClick(type: TButtonProps["type"], text: string) {
-    type === "submit"
-      ? // then submit answer and display whether or not it was correct
-        checkAnswer()
-      : setSelected((prevState) => {
-          if (prevState.includes(text)) {
-            // this means the button was already in selected, so we need to "unselect" it
-            return unselectButton(prevState, text)
-          } else {
-            // the button was not selected, so we need to select it
-            return selectButton(prevState, text)
-          }
-        })
+  function selectFinger(text: string) {
+    setSelected((prevState) => {
+      if (prevState.includes(text)) {
+        // this means the button was already in selected, so we need to "unselect" it
+        return unselectButton(prevState, text)
+      } else {
+        // the button was not selected, so we need to select it
+        return selectButton(prevState, text)
+      }
+    })
   }
 
   function checkAnswer() {
@@ -87,28 +84,28 @@ function App() {
           text="T"
           type="input"
           tabIndex={1}
-          handleClick={handleClick}
+          handleClick={selectFinger}
           selected={selected}
         />
         <Button
           text="1"
           type="input"
           tabIndex={2}
-          handleClick={handleClick}
+          handleClick={selectFinger}
           selected={selected}
         />
         <Button
           text="2"
           type="input"
           tabIndex={3}
-          handleClick={handleClick}
+          handleClick={selectFinger}
           selected={selected}
         />
         <Button
           text="3"
           type="input"
           tabIndex={4}
-          handleClick={handleClick}
+          handleClick={selectFinger}
           selected={selected}
         />
       </div>
@@ -116,7 +113,7 @@ function App() {
         text="Check Answer"
         type="submit"
         tabIndex={5}
-        handleClick={handleClick}
+        handleSubmitClick={checkAnswer}
         selected={selected}
       />
       <div className="display">{displayText}</div>

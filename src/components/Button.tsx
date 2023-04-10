@@ -6,11 +6,14 @@ export function Button({
   tabIndex,
   type,
   handleClick,
+  handleSubmitClick,
   selected,
 }: TButtonProps) {
   return (
     <div
-      onClick={() => handleClick(type, text)}
+      onClick={() => {
+        type === "submit" ? handleSubmitClick!() : handleClick!(text)
+      }}
       className={`btn ${type === "submit" && "btn-submit"} ${
         selected.includes(text) && "selected"
       }`}
