@@ -10,6 +10,10 @@ function App() {
   const [displayText, setDisplayText] = useState("")
 
   useEffect(() => {
+    askQuestion()
+  }, [])
+
+  function askQuestion() {
     // this sets a random note on refresh
     const letters = [
       // some commented out to deal with fingerings, haven't decided whether to include them or not
@@ -39,7 +43,9 @@ function App() {
     const randomNum1 = Math.floor(Math.random() * letters.length)
     const randomNum2 = Math.floor(Math.random() * numbers.length)
     setNote(`${letters[randomNum1]}${numbers[randomNum2]}`)
-  }, [])
+    setDisplayText("")
+    setSelected([])
+  }
 
   function selectFinger(text: string) {
     setSelected((prevState) => {
@@ -84,36 +90,43 @@ function App() {
           text="T"
           type="input"
           tabIndex={1}
-          handleClick={selectFinger}
+          handleFingeringClick={selectFinger}
           selected={selected}
         />
         <Button
           text="1"
           type="input"
           tabIndex={2}
-          handleClick={selectFinger}
+          handleFingeringClick={selectFinger}
           selected={selected}
         />
         <Button
           text="2"
           type="input"
           tabIndex={3}
-          handleClick={selectFinger}
+          handleFingeringClick={selectFinger}
           selected={selected}
         />
         <Button
           text="3"
           type="input"
           tabIndex={4}
-          handleClick={selectFinger}
+          handleFingeringClick={selectFinger}
           selected={selected}
         />
       </div>
       <Button
         text="Check Answer"
-        type="submit"
+        type="action"
         tabIndex={5}
-        handleSubmitClick={checkAnswer}
+        handleActionButtonClick={checkAnswer}
+        selected={selected}
+      />
+      <Button
+        text="Reset"
+        type="action"
+        tabIndex={6}
+        handleActionButtonClick={askQuestion}
         selected={selected}
       />
       <div className="display">{displayText}</div>

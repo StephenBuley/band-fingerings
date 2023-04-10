@@ -24,8 +24,8 @@ export type TFingerings = {
 export type TButtonProps = {
   text: string
   tabIndex: number
-  type: "input" | "submit"
-  handleClick?: (text: string) => void
-  handleSubmitClick?: () => void
+  type: "input" | "action"
+  handleFingeringClick?: (text: string) => void
+  handleActionButtonClick?: () => void
   selected: string[]
 }
