@@ -86,7 +86,9 @@ function App() {
     <div>
       <h1 className="title">French Horn Fingerings</h1>
       <p className="music-notation">
-        {musicNotes.trebleClefWithStaff + musicNotes.C4 + musicNotes.staffEnd}
+        {musicNotes.trebleClefWithStaff +
+          musicNotes[note as keyof typeof musicNotes] +
+          musicNotes.staffEnd}
       </p>
       {/* <img src={`/${note}.png`} alt={note} /> */}
       <div className="buttons">
