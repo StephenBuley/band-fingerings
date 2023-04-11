@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import { Button } from "./components/Button"
 import { TFrenchHornFingerings } from "./types"
 import { fingerings } from "./fingerings"
+import { musicNotes } from "./musicNotes"
 
 function App() {
   const [note, setNote] = useState("")
@@ -84,7 +85,10 @@ function App() {
   return (
     <div>
       <h1 className="title">French Horn Fingerings</h1>
-      <img src={`/${note}.png`} alt={note} />
+      <p className="music-notation">
+        {musicNotes.trebleClefWithStaff + musicNotes.C4 + musicNotes.staffEnd}
+      </p>
+      {/* <img src={`/${note}.png`} alt={note} /> */}
       <div className="buttons">
         <Button
           text="T"
