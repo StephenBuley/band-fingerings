@@ -1,15 +1,18 @@
-import { TInstrumentPageProps } from "../types"
-import { useState, useEffect } from "react"
-import { Button } from "./Button"
-import { TFrenchHornFingerings } from "../types"
-import { fingerings } from "../fingerings"
-import { musicNotes } from "../musicNotes"
-import { Link } from "react-router-dom"
+import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { TInstrumentPageProps, TFrenchHornFingerings } from '../types'
+import { Button } from './Button'
+import { fingerings } from '../fingerings'
+import musicNotes from '../musicNotes'
 
-export function InstrumentPage({ name, clef, valves }: TInstrumentPageProps) {
-  const [note, setNote] = useState("")
+export default function InstrumentPage({
+  name,
+  clef,
+  valves,
+}: TInstrumentPageProps) {
+  const [note, setNote] = useState('')
   const [selected, setSelected] = useState<string[]>([])
-  const [displayText, setDisplayText] = useState("")
+  const [displayText, setDisplayText] = useState('')
 
   useEffect(() => {
     askQuestion()
@@ -19,33 +22,34 @@ export function InstrumentPage({ name, clef, valves }: TInstrumentPageProps) {
     // this sets a random note on refresh
     const letters = [
       // some commented out to deal with fingerings, haven't decided whether to include them or not
-      "A",
+
+      'A',
       // "A#",
-      "Ab",
-      "B",
+      'Ab',
+      'B',
       // "B#",
-      "Bb",
-      "C",
+      'Bb',
+      'C',
       // "C#",
       // "Cb",
-      "D",
+      'D',
       // "D#",
-      "Db",
-      "E",
+      'Db',
+      'E',
       // "E#",
-      "Eb",
-      "F",
+      'Eb',
+      'F',
       // "F#",
       // "Fb",
-      "G",
+      'G',
       // "G#",
-      "Gb",
+      'Gb',
     ]
     const numbers = [4] // right now just 4, until fingerings update
     const randomNum1 = Math.floor(Math.random() * letters.length)
     const randomNum2 = Math.floor(Math.random() * numbers.length)
     setNote(`${letters[randomNum1]}${numbers[randomNum2]}`)
-    setDisplayText("")
+    setDisplayText('')
     setSelected([])
   }
 
@@ -54,22 +58,21 @@ export function InstrumentPage({ name, clef, valves }: TInstrumentPageProps) {
       if (prevState.includes(text)) {
         // this means the button was already in selected, so we need to "unselect" it
         return unselectButton(prevState, text)
-      } else {
-        // the button was not selected, so we need to select it
-        return selectButton(prevState, text)
       }
+      // the button was not selected, so we need to select it
+      return selectButton(prevState, text)
     })
   }
 
   function checkAnswer() {
     if (
       fingerings.frenchHorn[
-        selected.join("") as keyof TFrenchHornFingerings
+        selected.join('') as keyof TFrenchHornFingerings
       ].includes(note)
     ) {
-      setDisplayText("Correct!")
+      setDisplayText('Correct!')
     } else {
-      setDisplayText("Try Again!")
+      setDisplayText('Try Again!')
     }
   }
 
@@ -79,15 +82,14 @@ export function InstrumentPage({ name, clef, valves }: TInstrumentPageProps) {
 
   function selectButton(prevState: string[], text: string) {
     return [...prevState, text].sort(
-      (a, b) => (a.charCodeAt(0) > 65 ? -1 : parseInt(a) - parseInt(b)) // this sorting algorithm puts T first, then numbers in ascending order
+      // this sorting algorithm puts T first, then numbers in ascending order
+      (a, b) => (a.charCodeAt(0) > 65 ? -1 : parseInt(a, 10) - parseInt(b, 10)),
     )
   }
-
   function getStaffBeginning() {
     // transforms the clef into the correct name for musicNotes.ts
-    return clef + "ClefWithStaff"
+    return clef + 'ClefWithStaff'
   }
-
   return (
     <div>
       <h1 className="title">{name} Fingerings</h1>
@@ -97,15 +99,16 @@ export function InstrumentPage({ name, clef, valves }: TInstrumentPageProps) {
           musicNotes.staffEnd}
       </p>
       <div className="buttons">
-        {valves.map((valve, i) => (
-          // for each valve of the instrument (have to come up with something different for woodwinds, but this will do for now)
+        {valves.map((valve) => (
+          // for each valve, have to come up with something different for woodwinds)
           // create a button that has the text value from the valve array
           // with a type of input, tab index of index + 1 for 1 through length of array
           // and correct handleFingeringClick and selected prop values
           <Button
+            key={valve}
             text={valve}
             type="input"
-            tabIndex={i + 1}
+            tabIndex={0}
             handleFingeringClick={selectFinger}
             selected={selected}
           />
@@ -115,19 +118,19 @@ export function InstrumentPage({ name, clef, valves }: TInstrumentPageProps) {
       <Button
         text="Check Answer"
         type="action"
-        tabIndex={valves.length + 1}
+        tabIndex={0}
         handleActionButtonClick={checkAnswer}
         selected={selected}
       />
       <Button
         text="Reset"
         type="action"
-        tabIndex={valves.length + 2}
+        tabIndex={0}
         handleActionButtonClick={askQuestion}
         selected={selected}
       />
       <div className="display">{displayText}</div>
-      <Link to="/" tabIndex={valves.length + 3}>
+      <Link to="/" tabIndex={0}>
         Back to Instrument Selection
       </Link>
     </div>
