@@ -1,5 +1,6 @@
 const musicNotes = {
   trebleClefWithStaff: '-=', // U+E01AU+E050U+E01A-=U+E01A
+  bassClefWithStaff: '-=',
   B4: '', // U+E1D5=U+E01A
   A4: '=', // U+EB98U+E1D5=U+E01A
   C5: '=', // U+EB90U+E1D5=U+E01A

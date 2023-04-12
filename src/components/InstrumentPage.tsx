@@ -22,7 +22,6 @@ export default function InstrumentPage({
     // this sets a random note on refresh
     const letters = [
       // some commented out to deal with fingerings, haven't decided whether to include them or not
-
       'A',
       // "A#",
       'Ab',
