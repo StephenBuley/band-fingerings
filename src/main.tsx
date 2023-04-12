@@ -11,7 +11,23 @@ const router = createBrowserRouter([
   },
   {
     path: "/fhorn",
-    element: <InstrumentPage name="French Horn" />,
+    element: (
+      <InstrumentPage
+        name="French Horn"
+        clef="treble"
+        valves={["T", "1", "2", "3"]}
+      />
+    ),
+  },
+  {
+    path: "/euphonium",
+    element: (
+      <InstrumentPage
+        name="Euphonium"
+        clef="bass"
+        valves={["1", "2", "3", "4"]}
+      />
+    ),
   },
 ])
 

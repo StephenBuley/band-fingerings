@@ -32,4 +32,6 @@ export type TButtonProps = {
 
 export type TInstrumentPageProps = {
   name: string
+  clef: "treble" | "bass"
+  valves: string[]
 }

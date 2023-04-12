@@ -4,8 +4,9 @@ import { Button } from "./Button"
 import { TFrenchHornFingerings } from "../types"
 import { fingerings } from "../fingerings"
 import { musicNotes } from "../musicNotes"
+import { Link } from "react-router-dom"
 
-export function InstrumentPage({ name }: TInstrumentPageProps) {
+export function InstrumentPage({ name, clef, valves }: TInstrumentPageProps) {
   const [note, setNote] = useState("")
   const [selected, setSelected] = useState<string[]>([])
   const [displayText, setDisplayText] = useState("")
@@ -81,60 +82,54 @@ export function InstrumentPage({ name }: TInstrumentPageProps) {
       (a, b) => (a.charCodeAt(0) > 65 ? -1 : parseInt(a) - parseInt(b)) // this sorting algorithm puts T first, then numbers in ascending order
     )
   }
+
+  function getStaffBeginning() {
+    // transforms the clef into the correct name for musicNotes.ts
+    return clef + "ClefWithStaff"
+  }
+
   return (
     <div>
-      <h1 className="title">French Horn Fingerings</h1>
+      <h1 className="title">{name} Fingerings</h1>
       <p className="music-notation">
-        {musicNotes.trebleClefWithStaff +
+        {musicNotes[getStaffBeginning() as keyof typeof musicNotes] +
           musicNotes[note as keyof typeof musicNotes] +
           musicNotes.staffEnd}
       </p>
-      {/* <img src={`/${note}.png`} alt={note} /> */}
       <div className="buttons">
-        <Button
-          text="T"
-          type="input"
-          tabIndex={1}
-          handleFingeringClick={selectFinger}
-          selected={selected}
-        />
-        <Button
-          text="1"
-          type="input"
-          tabIndex={2}
-          handleFingeringClick={selectFinger}
-          selected={selected}
-        />
-        <Button
-          text="2"
-          type="input"
-          tabIndex={3}
-          handleFingeringClick={selectFinger}
-          selected={selected}
-        />
-        <Button
-          text="3"
-          type="input"
-          tabIndex={4}
-          handleFingeringClick={selectFinger}
-          selected={selected}
-        />
+        {valves.map((valve, i) => (
+          // for each valve of the instrument (have to come up with something different for woodwinds, but this will do for now)
+          // create a button that has the text value from the valve array
+          // with a type of input, tab index of index + 1 for 1 through length of array
+          // and correct handleFingeringClick and selected prop values
+          <Button
+            text={valve}
+            type="input"
+            tabIndex={i + 1}
+            handleFingeringClick={selectFinger}
+            selected={selected}
+          />
+        ))}
       </div>
+
       <Button
         text="Check Answer"
         type="action"
-        tabIndex={5}
+        tabIndex={valves.length + 1}
         handleActionButtonClick={checkAnswer}
         selected={selected}
       />
       <Button
         text="Reset"
         type="action"
-        tabIndex={6}
+        tabIndex={valves.length + 2}
         handleActionButtonClick={askQuestion}
         selected={selected}
       />
       <div className="display">{displayText}</div>
+      <Link to="/" tabIndex={valves.length + 3}>
+        Back to Instrument Selection
+      </Link>
     </div>
   )
 }
