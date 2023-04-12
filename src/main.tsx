@@ -2,6 +2,7 @@ import React from "react"
 import ReactDOM from "react-dom/client"
 import App from "./App"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import { InstrumentPage } from "./components/InstrumentPage"
 
 const router = createBrowserRouter([
   {
@@ -10,7 +11,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/fhorn",
-    element: <div>hello french horns!</div>,
+    element: <InstrumentPage name="French Horn" />,
   },
 ])
 

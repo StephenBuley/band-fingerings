@@ -30,6 +30,6 @@ export type TButtonProps = {
   selected: string[]
 }
 
-export type TInstrumentProps = {
+export type TInstrumentPageProps = {
   name: string
 }
