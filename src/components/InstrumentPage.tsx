@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { TInstrumentPageProps, TFrenchHornFingerings } from '../types'
 import { Button } from './Button'
-import { fingerings } from '../fingerings'
+import fingerings from '../fingerings'
 import musicNotes from '../musicNotes'
 
 export default function InstrumentPage({
@@ -88,7 +88,7 @@ export default function InstrumentPage({
   }
   function getStaffBeginning() {
     // transforms the clef into the correct name for musicNotes.ts
-    return clef + 'ClefWithStaff'
+    return `${clef}ClefWithStaff`
   }
   return (
     <div>
