@@ -29,3 +29,7 @@ export type TButtonProps = {
   handleActionButtonClick?: () => void
   selected: string[]
 }
+
+export type TInstrumentProps = {
+  name: string
+}

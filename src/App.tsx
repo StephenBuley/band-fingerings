@@ -4,6 +4,7 @@ import { Button } from "./components/Button"
 import { TFrenchHornFingerings } from "./types"
 import { fingerings } from "./fingerings"
 import { musicNotes } from "./musicNotes"
+import { Instrument } from "./components/Instrument"
 
 function App() {
   const [note, setNote] = useState("")
@@ -84,6 +85,7 @@ function App() {
 
   return (
     <div>
+      <Instrument name="French Horn" />
       <h1 className="title">French Horn Fingerings</h1>
       <p className="music-notation">
         {musicNotes.trebleClefWithStaff +
