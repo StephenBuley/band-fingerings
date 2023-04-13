@@ -1,12 +1,15 @@
-export interface FrenchHornFingerings {
+interface ThreeValveFingerings {
   '': string[]
-  '1': string[]
-  '2': string[]
-  '3': string[]
-  '12': string[]
-  '23': string[]
-  '13': string[]
-  '123': string[]
+  1: string[]
+  2: string[]
+  3: string[]
+  12: string[]
+  23: string[]
+  13: string[]
+  123: string[]
+}
+
+export interface FrenchHornFingerings extends ThreeValveFingerings {
   T: string[]
   T1: string[]
   T2: string[]
@@ -17,8 +20,20 @@ export interface FrenchHornFingerings {
   T123: string[]
 }
 
+export interface EuphoniumFingerings extends ThreeValveFingerings {
+  4: string[]
+  14: string[]
+  24: string[]
+  34: string[]
+  124: string[]
+  134: string[]
+  234: string[]
+  1234: string[]
+}
+
 export interface Fingerings {
   frenchHorn: FrenchHornFingerings
+  euphonium: EuphoniumFingerings
 }
 
 export interface ButtonProps {
