@@ -94,7 +94,7 @@ export default function InstrumentPage({
       <h1 className="title">{name} Fingerings</h1>
       <p className="music-notation">
         {musicNotes[getStaffBeginning() as keyof typeof musicNotes] +
-          musicNotes[note as keyof typeof musicNotes] +
+          musicNotes[`treble${note}` as keyof typeof musicNotes] + // change later
           musicNotes.staffEnd}
       </p>
       <div className="buttons">

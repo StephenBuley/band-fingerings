@@ -31,6 +31,7 @@
         "allowFunctions": true
       }
     ],
-    "operator-linebreak": "off"
+    "operator-linebreak": "off",
+    "implicit-arrow-linebreak": "off"
   }
 }
