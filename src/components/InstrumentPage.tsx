@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { TInstrumentPageProps, TFrenchHornFingerings } from '../types'
-import { Button } from './Button'
+import { InstrumentPageProps, FrenchHornFingerings } from '../types'
+import Button from './Button'
 import fingerings from '../fingerings'
 import musicNotes from '../musicNotes'
 
@@ -9,7 +9,7 @@ export default function InstrumentPage({
   name,
   clef,
   valves,
-}: TInstrumentPageProps) {
+}: InstrumentPageProps) {
   const [note, setNote] = useState('')
   const [selected, setSelected] = useState<string[]>([])
   const [displayText, setDisplayText] = useState('')
@@ -64,9 +64,10 @@ export default function InstrumentPage({
   }
 
   function checkAnswer() {
+    // this needs to be refactored to accept any instrument
     if (
       fingerings.frenchHorn[
-        selected.join('') as keyof TFrenchHornFingerings
+        selected.join('') as keyof FrenchHornFingerings
       ].includes(note)
     ) {
       setDisplayText('Correct!')

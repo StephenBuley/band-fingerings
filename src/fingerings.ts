@@ -1,7 +1,7 @@
 /* eslint-disable quote-props */
-import { TFingerings } from './types'
+import { Fingerings } from './types'
 
-const fingerings: TFingerings = {
+const fingerings: Fingerings = {
   frenchHorn: {
     '': ['C4', 'E4', 'G4'], // this is for open fingerings
     '1': ['D4', 'F4'],
@@ -20,6 +20,16 @@ const fingerings: TFingerings = {
     T13: [],
     T123: [],
   },
+  // euphonium: {
+  //   '': [], // this is for open fingerings
+  //   '1': [],
+  //   '2': [],
+  //   '3': [],
+  //   '12': [],
+  //   '23': [],
+  //   '13': [],
+  //   '123': [],
+  // },
 }
 
 export default fingerings

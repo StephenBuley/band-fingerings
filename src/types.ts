@@ -1,4 +1,4 @@
-export type TFrenchHornFingerings = {
+export interface FrenchHornFingerings {
   '': string[]
   '1': string[]
   '2': string[]
@@ -17,11 +17,11 @@ export type TFrenchHornFingerings = {
   T123: string[]
 }
 
-export type TFingerings = {
-  frenchHorn: TFrenchHornFingerings
+export interface Fingerings {
+  frenchHorn: FrenchHornFingerings
 }
 
-export type TButtonProps = {
+export interface ButtonProps {
   text: string
   tabIndex: number
   type: 'input' | 'action'
@@ -30,7 +30,7 @@ export type TButtonProps = {
   selected: string[]
 }
 
-export type TInstrumentPageProps = {
+export interface InstrumentPageProps {
   name: string
   clef: 'treble' | 'bass'
   valves: string[]
