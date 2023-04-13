@@ -22,6 +22,18 @@ const musicNoteComponents = {
   bass: '',
 }
 
+function encode(string: string) {
+  const directions = string.split(' ')
+  return directions.reduce((acc, value) => {
+    if (Object.hasOwn(musicNoteComponents, value)) {
+      return (
+        acc + musicNoteComponents[value as keyof typeof musicNoteComponents]
+      )
+    }
+    return acc
+  }, '')
+}
+
 const musicNotes = {
   trebleClefWithStaff: encode('staff treble staff - = staff'), // '-=', // U+E01AU+E050U+E01A-=U+E01A
   bassClefWithStaff: encode('staff bass staff - = staff'), // '-=', // U+E01AU+E062U+E01A-=U+E01A
@@ -44,18 +56,6 @@ const musicNotes = {
   bassE3: encode('u1 q = staff'),
   bassF3: encode('u2 q = staff'),
   bassG3: encode('u3 q = staff'), // etc. this will go on
-}
-
-function encode(string: string) {
-  const directions = string.split(' ')
-  return directions.reduce((acc, value) => {
-    if (Object.hasOwn(musicNoteComponents, value)) {
-      return (
-        acc + musicNoteComponents[value as keyof typeof musicNoteComponents]
-      )
-    }
-    return acc
-  }, '')
 }
 
 export default musicNotes
