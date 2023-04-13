@@ -32,6 +32,7 @@
       }
     ],
     "operator-linebreak": "off",
-    "implicit-arrow-linebreak": "off"
+    "implicit-arrow-linebreak": "off",
+    "import/no-extraneous-dependencies": "off"
   }
 }

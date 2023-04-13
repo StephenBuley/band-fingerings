@@ -1,7 +1,7 @@
 @font-face {
-  font-family: "Bravura Text";
+  font-family: 'Bravura Text';
   font-style: normal;
-  src: local("Bravura Text"), url(./fonts/BravuraText.otf) format("opentype");
+  src: local('Bravura Text'), url(./fonts/BravuraText.otf) format('opentype');
 }
 html {
   font-size: 16px;
@@ -19,6 +19,6 @@ body {
 }
 
 .music-notation {
-  font-family: "Bravura Text";
+  font-family: 'Bravura Text';
   font-size: 48px;
 }
