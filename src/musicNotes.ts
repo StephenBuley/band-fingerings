@@ -5,7 +5,7 @@ const musicNoteComponents = {
   u1: '',
   u2: '',
   u3: '',
-  u4: '',
+  u4: '',
   u5: '',
   u6: '',
   d1: '',
@@ -20,6 +20,7 @@ const musicNoteComponents = {
   _: ' ',
   treble: '',
   bass: '',
+  barline: '',
 }
 
 function encode(string: string) {
@@ -37,7 +38,7 @@ function encode(string: string) {
 const musicNotes = {
   trebleClefWithStaff: encode('staff treble staff - = staff'), // '-=', // U+E01AU+E050U+E01A-=U+E01A
   bassClefWithStaff: encode('staff bass staff - = staff'), // '-=', // U+E01AU+E062U+E01A-=U+E01A
-  staffEnd: '--=', // -U+E01A-=U+E030
+  staffEnd: encode('- staff - = barline'), // '--=', // -U+E01A-=U+E030
   trebleB4: encode('q staff'), // U+E1D5=U+E01A
   trebleA4: encode('d1 q = staff'), // '=', // U+EB98U+E1D5=U+E01A
   trebleC5: encode('u1 q = staff'), // '=', // U+EB90U+E1D5=U+E01A
@@ -55,7 +56,15 @@ const musicNotes = {
   bassD3: encode('q staff'),
   bassE3: encode('u1 q = staff'),
   bassF3: encode('u2 q = staff'),
-  bassG3: encode('u3 q = staff'), // etc. this will go on
+  bassG3: encode('u3 q = staff'),
+  bassA3: encode('u4 q = staff'),
+  bassB3: encode('u5 q = staff'),
+  bassC4: encode('u6 leger u6 q = staff'),
+  bassAb3: encode('u4 b - u4 q - staff'),
+  bassBb3: encode('u5 b - u5 q - staff'),
+  bassDb3: encode('b q staff'),
+  bassEb3: encode('u1 b - u1 q - staff'),
+  bassGb3: encode('u3 b - u3 q - staff'),
 }
 
 export default musicNotes

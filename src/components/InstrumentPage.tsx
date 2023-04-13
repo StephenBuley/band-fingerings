@@ -44,7 +44,7 @@ export default function InstrumentPage({
       // "G#",
       'Gb',
     ]
-    const numbers = [4] // right now just 4, until fingerings update
+    const numbers = clef === 'treble' ? [4] : [3] // only 4 for horn and 3 for euph right now
     const randomNum1 = Math.floor(Math.random() * letters.length)
     const randomNum2 = Math.floor(Math.random() * numbers.length)
     setNote(`${letters[randomNum1]}${numbers[randomNum2]}`)
@@ -94,7 +94,7 @@ export default function InstrumentPage({
       <h1 className="title">{name} Fingerings</h1>
       <p className="music-notation">
         {musicNotes[getStaffBeginning() as keyof typeof musicNotes] +
-          musicNotes[`treble${note}` as keyof typeof musicNotes] + // change later
+          musicNotes[`${clef}${note}` as keyof typeof musicNotes] +
           musicNotes.staffEnd}
       </p>
       <div className="buttons">
