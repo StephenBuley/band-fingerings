@@ -2,19 +2,20 @@
 import './Button.css'
 import { ButtonProps } from '../types'
 
-function Button({
+function Button<T>({
   text,
   tabIndex,
   type,
   handleFingeringClick,
   handleActionButtonClick,
   selected,
-}: ButtonProps) {
+  fingering,
+}: ButtonProps<T>) {
   return (
     <div
       onClick={() => {
         type === 'action'
-          ? handleActionButtonClick?.()
+          ? handleActionButtonClick?.(fingering)
           : handleFingeringClick?.(text)
       }}
       className={`btn ${type === 'action' && 'btn-submit'} ${

@@ -1,4 +1,4 @@
-interface ThreeValveFingerings {
+type ThreeValveFingering = {
   '': string[]
   1: string[]
   2: string[]
@@ -9,7 +9,7 @@ interface ThreeValveFingerings {
   123: string[]
 }
 
-export interface FrenchHornFingerings extends ThreeValveFingerings {
+export type FrenchHornFingering = ThreeValveFingering & {
   T: string[]
   T1: string[]
   T2: string[]
@@ -20,7 +20,7 @@ export interface FrenchHornFingerings extends ThreeValveFingerings {
   T123: string[]
 }
 
-export interface EuphoniumFingerings extends ThreeValveFingerings {
+export type EuphoniumFingering = ThreeValveFingering & {
   4: string[]
   14: string[]
   24: string[]
@@ -31,22 +31,19 @@ export interface EuphoniumFingerings extends ThreeValveFingerings {
   1234: string[]
 }
 
-export interface Fingerings {
-  frenchHorn: FrenchHornFingerings
-  euphonium: EuphoniumFingerings
-}
-
-export interface ButtonProps {
+export interface ButtonProps<T> {
   text: string
   tabIndex: number
   type: 'input' | 'action'
   handleFingeringClick?: (text: string) => void
-  handleActionButtonClick?: () => void
+  handleActionButtonClick?: (fingering: T) => void | (() => void)
   selected: string[]
+  fingering: T
 }
 
-export interface InstrumentPageProps {
+export interface InstrumentPageProps<T> {
   name: string
   clef: 'treble' | 'bass'
   valves: string[]
+  fingeringSet: T
 }

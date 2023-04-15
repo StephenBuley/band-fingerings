@@ -1,15 +1,13 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { InstrumentPageProps, FrenchHornFingerings } from '../types'
+import { InstrumentPageProps } from '../types'
 import Button from './Button'
-import fingerings from '../fingerings'
 import musicNotes from '../musicNotes'
+import { fhorn } from '../fingerings'
 
-export default function InstrumentPage({
-  name,
-  clef,
-  valves,
-}: InstrumentPageProps) {
+export default function InstrumentPage<
+  T extends { [index: string]: string[] },
+>({ name, clef, valves, fingeringSet }: InstrumentPageProps<T>) {
   const [note, setNote] = useState('')
   const [selected, setSelected] = useState<string[]>([])
   const [displayText, setDisplayText] = useState('')
@@ -63,13 +61,8 @@ export default function InstrumentPage({
     })
   }
 
-  function checkAnswer() {
-    // this needs to be refactored to accept any instrument
-    if (
-      fingerings.frenchHorn[
-        selected.join('') as keyof FrenchHornFingerings
-      ].includes(note)
-    ) {
+  function checkAnswer<U extends { [index: string]: string[] }>(fingering: U) {
+    if (fingering[selected.join('') as keyof U].includes(note)) {
       setDisplayText('Correct!')
     } else {
       setDisplayText('Try Again!')
@@ -111,16 +104,17 @@ export default function InstrumentPage({
             tabIndex={0}
             handleFingeringClick={selectFinger}
             selected={selected}
+            fingering={fhorn}
           />
         ))}
       </div>
-
       <Button
         text="Check Answer"
         type="action"
         tabIndex={0}
         handleActionButtonClick={checkAnswer}
         selected={selected}
+        fingering={fingeringSet}
       />
       <Button
         text="Reset"
@@ -128,6 +122,7 @@ export default function InstrumentPage({
         tabIndex={0}
         handleActionButtonClick={askQuestion}
         selected={selected}
+        fingering={fingeringSet}
       />
       <div className="display">{displayText}</div>
       <Link to="/" tabIndex={0}>
