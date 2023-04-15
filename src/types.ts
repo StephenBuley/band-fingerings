@@ -33,7 +33,6 @@ export type EuphoniumFingering = ThreeValveFingering & {
 
 export interface ButtonProps<T> {
   text: string
-  tabIndex: number
   type: 'input' | 'action'
   handleFingeringClick?: (text: string) => void
   handleActionButtonClick?: (fingering: T) => void | (() => void)

@@ -101,7 +101,6 @@ export default function InstrumentPage<
             key={valve}
             text={valve}
             type="input"
-            tabIndex={0}
             handleFingeringClick={selectFinger}
             selected={selected}
             fingering={fhorn}
@@ -111,7 +110,6 @@ export default function InstrumentPage<
       <Button
         text="Check Answer"
         type="action"
-        tabIndex={0}
         handleActionButtonClick={checkAnswer}
         selected={selected}
         fingering={fingeringSet}
@@ -119,7 +117,6 @@ export default function InstrumentPage<
       <Button
         text="Reset"
         type="action"
-        tabIndex={0}
         handleActionButtonClick={askQuestion}
         selected={selected}
         fingering={fingeringSet}

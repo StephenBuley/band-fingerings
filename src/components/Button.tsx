@@ -4,7 +4,6 @@ import { ButtonProps } from '../types'
 
 function Button<T>({
   text,
-  tabIndex,
   type,
   handleFingeringClick,
   handleActionButtonClick,
@@ -21,7 +20,7 @@ function Button<T>({
       className={`btn ${type === 'action' && 'btn-submit'} ${
         selected.includes(text) && 'selected'
       }`}
-      tabIndex={tabIndex}
+      tabIndex={0}
     >
       {text}
     </div>
