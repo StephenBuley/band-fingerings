@@ -1,23 +1,25 @@
-import "./Button.css"
-import { TButtonProps } from "../types"
+/* eslint-disable */
+import './Button.css'
+import { ButtonProps } from '../types'
 
-export function Button({
+function Button<T>({
   text,
   tabIndex,
   type,
   handleFingeringClick,
   handleActionButtonClick,
   selected,
-}: TButtonProps) {
+  fingering,
+}: ButtonProps<T>) {
   return (
     <div
       onClick={() => {
-        type === "action"
-          ? handleActionButtonClick!()
-          : handleFingeringClick!(text)
+        type === 'action'
+          ? handleActionButtonClick?.(fingering)
+          : handleFingeringClick?.(text)
       }}
-      className={`btn ${type === "action" && "btn-submit"} ${
-        selected.includes(text) && "selected"
+      className={`btn ${type === 'action' && 'btn-submit'} ${
+        selected.includes(text) && 'selected'
       }`}
       tabIndex={tabIndex}
     >
@@ -25,3 +27,5 @@ export function Button({
     </div>
   )
 }
+
+export default Button

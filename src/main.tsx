@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App'
 import InstrumentPage from './components/InstrumentPage'
+import { euphonium, fhorn } from './fingerings'
+import { EuphoniumFingering, FrenchHornFingering } from './types'
 
 const router = createBrowserRouter([
   {
@@ -11,7 +13,25 @@ const router = createBrowserRouter([
   },
   {
     path: '/fhorn',
-    element: <InstrumentPage name="French Horn" />,
+    element: (
+      <InstrumentPage<FrenchHornFingering>
+        name="French Horn"
+        clef="treble"
+        fingeringSet={fhorn}
+        valves={['T', '1', '2', '3']}
+      />
+    ),
+  },
+  {
+    path: '/euphonium',
+    element: (
+      <InstrumentPage<EuphoniumFingering>
+        name="Euphonium"
+        clef="bass"
+        fingeringSet={euphonium}
+        valves={['1', '2', '3', '4']}
+      />
+    ),
   },
 ])
 

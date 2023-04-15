@@ -31,6 +31,9 @@
         "allowFunctions": true
       }
     ],
-    "operator-linebreak": "off"
+    "operator-linebreak": "off",
+    "implicit-arrow-linebreak": "off",
+    "import/no-extraneous-dependencies": "off",
+    "object-curly-newline": "off"
   }
 }

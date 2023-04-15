@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react'
-import { TInstrumentPageProps, TFrenchHornFingerings } from '../types'
-import { Button } from './Button'
-import { fingerings } from '../fingerings'
+import { Link } from 'react-router-dom'
+import { InstrumentPageProps } from '../types'
+import Button from './Button'
 import musicNotes from '../musicNotes'
+import { fhorn } from '../fingerings'
 
-export default function InstrumentPage({ name }: TInstrumentPageProps) {
+export default function InstrumentPage<
+  T extends { [index: string]: string[] },
+>({ name, clef, valves, fingeringSet }: InstrumentPageProps<T>) {
   const [note, setNote] = useState('')
   const [selected, setSelected] = useState<string[]>([])
   const [displayText, setDisplayText] = useState('')
@@ -39,7 +42,7 @@ export default function InstrumentPage({ name }: TInstrumentPageProps) {
       // "G#",
       'Gb',
     ]
-    const numbers = [4] // right now just 4, until fingerings update
+    const numbers = clef === 'treble' ? [4] : [3] // only 4 for horn and 3 for euph right now
     const randomNum1 = Math.floor(Math.random() * letters.length)
     const randomNum2 = Math.floor(Math.random() * numbers.length)
     setNote(`${letters[randomNum1]}${numbers[randomNum2]}`)
@@ -58,12 +61,8 @@ export default function InstrumentPage({ name }: TInstrumentPageProps) {
     })
   }
 
-  function checkAnswer() {
-    if (
-      fingerings.frenchHorn[
-        selected.join('') as keyof TFrenchHornFingerings
-      ].includes(note)
-    ) {
+  function checkAnswer<U extends { [index: string]: string[] }>(fingering: U) {
+    if (fingering[selected.join('') as keyof U].includes(note)) {
       setDisplayText('Correct!')
     } else {
       setDisplayText('Try Again!')
@@ -80,44 +79,34 @@ export default function InstrumentPage({ name }: TInstrumentPageProps) {
       (a, b) => (a.charCodeAt(0) > 65 ? -1 : parseInt(a, 10) - parseInt(b, 10)),
     )
   }
+  function getStaffBeginning() {
+    // transforms the clef into the correct name for musicNotes.ts
+    return `${clef}ClefWithStaff`
+  }
   return (
     <div>
       <h1 className="title">{name} Fingerings</h1>
       <p className="music-notation">
-        {musicNotes.trebleClefWithStaff +
-          musicNotes[note as keyof typeof musicNotes] +
+        {musicNotes[getStaffBeginning() as keyof typeof musicNotes] +
+          musicNotes[`${clef}${note}` as keyof typeof musicNotes] +
           musicNotes.staffEnd}
       </p>
-      {/* <img src={`/${note}.png`} alt={note} /> */}
       <div className="buttons">
-        <Button
-          text="T"
-          type="input"
-          tabIndex={0}
-          handleFingeringClick={selectFinger}
-          selected={selected}
-        />
-        <Button
-          text="1"
-          type="input"
-          tabIndex={0}
-          handleFingeringClick={selectFinger}
-          selected={selected}
-        />
-        <Button
-          text="2"
-          type="input"
-          tabIndex={0}
-          handleFingeringClick={selectFinger}
-          selected={selected}
-        />
-        <Button
-          text="3"
-          type="input"
-          tabIndex={0}
-          handleFingeringClick={selectFinger}
-          selected={selected}
-        />
+        {valves.map((valve) => (
+          // for each valve, have to come up with something different for woodwinds)
+          // create a button that has the text value from the valve array
+          // with a type of input, tab index of index + 1 for 1 through length of array
+          // and correct handleFingeringClick and selected prop values
+          <Button
+            key={valve}
+            text={valve}
+            type="input"
+            tabIndex={0}
+            handleFingeringClick={selectFinger}
+            selected={selected}
+            fingering={fhorn}
+          />
+        ))}
       </div>
       <Button
         text="Check Answer"
@@ -125,6 +114,7 @@ export default function InstrumentPage({ name }: TInstrumentPageProps) {
         tabIndex={0}
         handleActionButtonClick={checkAnswer}
         selected={selected}
+        fingering={fingeringSet}
       />
       <Button
         text="Reset"
@@ -132,8 +122,12 @@ export default function InstrumentPage({ name }: TInstrumentPageProps) {
         tabIndex={0}
         handleActionButtonClick={askQuestion}
         selected={selected}
+        fingering={fingeringSet}
       />
       <div className="display">{displayText}</div>
+      <Link to="/" tabIndex={0}>
+        Back to Instrument Selection
+      </Link>
     </div>
   )
 }
