@@ -1,28 +1,28 @@
 const musicNoteComponents = {
-  b: '',
-  s: '',
-  q: '',
-  qd: '',
-  staff: '',
-  u1: '',
-  u2: '',
-  u3: '',
-  u4: '',
-  u5: '',
-  u6: '',
-  d1: '',
-  '-': '-',
-  '=': '=',
-  d2: '',
-  d3: '',
-  d4: '',
-  d5: '',
-  d6: '',
-  leger: '',
-  _: ' ',
-  treble: '',
-  bass: '',
-  barline: '',
+  b: '', // U+E260
+  s: '', // U+E262
+  q: '', // U+E1D5
+  qd: '', // U+E1D6
+  staff: '', // U+E01A
+  u1: '', // U+EB90
+  u2: '', // U+EB91
+  u3: '', // U+EB92
+  u4: '', // U+EB93
+  u5: '', // U+EB94
+  u6: '', // U+EB95
+  d1: '', // U+EB98
+  '-': '-', // -
+  '=': '=', // =
+  d2: '', // U+EB99
+  d3: '', // U+EB9A
+  d4: '', // U+EB9B
+  d5: '', // U+EB9C
+  d6: '', // U+EB9D
+  leger: '', // U+E022
+  _: ' ', // space
+  treble: '', // U+E050
+  bass: '', // U+E062
+  barline: '', // U+E030
 }
 
 function encode(string: string) {
@@ -38,23 +38,27 @@ function encode(string: string) {
 }
 
 const musicNotes = {
-  trebleClefWithStaff: encode('staff treble staff - = staff'), // '-=', // U+E01AU+E050U+E01A-=U+E01A
-  bassClefWithStaff: encode('staff bass staff - = staff'), // '-=', // U+E01AU+E062U+E01A-=U+E01A
-  staffEnd: encode('- staff - = barline'), // '--=', // -U+E01A-=U+E030
-  trebleB4: encode('qd staff'), // U+E1D5=U+E01A
-  trebleA4: encode('d1 q = staff'), // '=', // U+EB98U+E1D5=U+E01A
-  trebleC5: encode('u1 qd = staff'), // '=', // U+EB90U+E1D5=U+E01A
-  trebleG4: encode('d2 q = staff'), // '=', // U+EB99U+E1D5=U+E01A
-  trebleF4: encode('d3 q = staff'), // '=', // U+EB9AU+E1D5=U+E01A
-  trebleE4: encode('d4 q = staff'), // '=', // U+EB9BU+E1D5=U+E01A
-  trebleD4: encode('d5 q = staff'), // '=', // U+EB9CU+E1D5=U+E01A
-  trebleC4: encode('d6 leger d6 q = staff'), // '=', // U+EB9DU+E022U+EB9DU+E1D5=U+E01A
-  trebleBb4: encode('b qd staff'), // '', // U+E260 U+E1D5U+E01A
-  trebleAb4: encode('d1 b - _ d1 q - staff'), // '--', // U+E260 U+E1D5U+E01A
-  trebleDb4: encode('d5 b - _ d5 q - staff'), // '--', // U+E260 U+E1D5U+E01A
-  trebleEb4: encode('d4 b - _ d4 q - staff'), // '--', // U+E260 U+E1D5U+E01A
-  trebleGb4: encode('d2 b - _ d2 q - staff'), // '--', // U+E260 U+E1D5U+E01A
+  trebleClefWithStaff: encode('staff treble staff - = staff'),
+  bassClefWithStaff: encode('staff bass staff - = staff'),
+  staffEnd: encode('- staff - = barline'),
+  trebleB4: encode('qd staff'),
+  trebleA4: encode('d1 q = staff'),
+  trebleC5: encode('u1 qd = staff'),
+  trebleG4: encode('d2 q = staff'),
+  trebleF4: encode('d3 q = staff'),
+  trebleE4: encode('d4 q = staff'),
+  trebleD4: encode('d5 q = staff'),
+  trebleC4: encode('d6 leger d6 q = staff'),
+  trebleBb4: encode('b _ qd staff'),
+  trebleAb4: encode('d1 b - _ d1 q - staff'),
+  trebleDb4: encode('d5 b - _ d5 q - staff'),
+  trebleEb4: encode('d4 b - _ d4 q - staff'),
+  trebleGb4: encode('d2 b - _ d2 q - staff'),
   trebleCs4: encode('d6 s - _ d6 leger d6 q - staff'),
+  trebleDs4: encode('d5 s - _ d5 q - staff'),
+  trebleFs4: encode('d3 s - _ d3 q - staff'),
+  trebleGs4: encode('d2 s - _ d2 q - staff'),
+  trebleAs4: encode('d1 s - _ d1 q - staff'),
   bassC3: encode('d1 q = staff'),
   bassD3: encode('qd staff'),
   bassE3: encode('u1 qd = staff'),
@@ -65,9 +69,14 @@ const musicNotes = {
   bassC4: encode('u6 leger u6 qd = staff'),
   bassAb3: encode('u4 b - _ u4 qd - staff'),
   bassBb3: encode('u5 b - _ u5 qd - staff'),
-  bassDb3: encode('b qd staff'),
+  bassDb3: encode('b _ qd staff'),
   bassEb3: encode('u1 b - _ u1 qd - staff'),
   bassGb3: encode('u3 b - _ u3 qd - staff'),
+  bassCs3: encode('d1 s - _ d1 q - staff'),
+  bassDs3: encode('s _ qd staff'),
+  bassFs3: encode('u2 s - _ u2 qd - staff'),
+  bassGs3: encode('u3 s - _ u3 qd - staff'),
+  bassAs3: encode('u4 s - _ u4 qd - staff'),
 }
 
 export default musicNotes
