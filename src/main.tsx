@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App'
 import InstrumentPage from './components/InstrumentPage'
-import { euphonium, fhorn } from './fingerings'
-import { EuphoniumFingering, FrenchHornFingering } from './types'
+import { euphonium, fhorn } from './helpers/fingerings'
+import { EuphoniumFingering, FrenchHornFingering } from './helpers/types'
 
 const router = createBrowserRouter([
   {

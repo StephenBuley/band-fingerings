@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { InstrumentPageProps } from '../types'
+import { InstrumentPageProps } from '../helpers/types'
 import Button from './Button'
-import musicNotes from '../musicNotes'
-import { fhorn } from '../fingerings'
+import musicNotes from '../helpers/musicNotes'
+import { fhorn } from '../helpers/fingerings'
 
 export default function InstrumentPage<
   T extends { [index: string]: string[] },
