@@ -61,8 +61,8 @@ export default function InstrumentPage<
     })
   }
 
-  function checkAnswer<U extends { [index: string]: string[] }>(fingering: U) {
-    if (fingering[selected.join('') as keyof U].includes(note)) {
+  function checkAnswer(fingering: T) {
+    if (fingering[selected.join('') as keyof T].includes(note)) {
       setDisplayText('Correct!')
     } else {
       setDisplayText('Try Again!')
