@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App'
 import InstrumentPage from './components/InstrumentPage'
 import { euphonium, fhorn } from './helpers/fingerings'
-import { EuphoniumFingering, FrenchHornFingering } from './helpers/types'
+import { EuphoniumFingering, FrenchHornFingering } from './types'
 
 const router = createBrowserRouter([
   {

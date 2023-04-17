@@ -1,4 +1,4 @@
-import { EuphoniumFingering, FrenchHornFingering } from './types'
+import { EuphoniumFingering, FrenchHornFingering } from '../types'
 
 export const fhorn: FrenchHornFingering = {
   '': ['C4', 'E4', 'G4'], // this is for open fingerings

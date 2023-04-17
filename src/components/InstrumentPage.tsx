@@ -1,10 +1,15 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { InstrumentPageProps } from '../helpers/types'
+import { InstrumentPageProps } from '../types'
 import Button from './Button'
 import musicNotes from '../helpers/musicNotes'
 import { fhorn } from '../helpers/fingerings'
-import getNote from '../helpers/getNote'
+import {
+  getNote,
+  getStaffBeginning,
+  selectButton,
+  unselectButton,
+} from '../helpers/functions'
 
 export default function InstrumentPage<
   T extends { [index: string]: string[] },
@@ -42,25 +47,11 @@ export default function InstrumentPage<
     }
   }
 
-  function unselectButton(prevState: string[], text: string) {
-    return [...prevState.filter((button) => button !== text)]
-  }
-
-  function selectButton(prevState: string[], text: string) {
-    return [...prevState, text].sort(
-      // this sorting algorithm puts T first, then numbers in ascending order
-      (a, b) => (a.charCodeAt(0) > 65 ? -1 : parseInt(a, 10) - parseInt(b, 10)),
-    )
-  }
-  function getStaffBeginning() {
-    // transforms the clef into the correct name for musicNotes.ts
-    return `${clef}ClefWithStaff`
-  }
   return (
     <div>
       <h1 className="title">{name} Fingerings</h1>
       <p className="music-notation">
-        {musicNotes[getStaffBeginning() as keyof typeof musicNotes] +
+        {musicNotes[getStaffBeginning(clef) as keyof typeof musicNotes] +
           musicNotes[`${clef}${note}` as keyof typeof musicNotes] +
           musicNotes.staffEnd}
       </p>

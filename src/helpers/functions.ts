@@ -1,6 +1,6 @@
-import { Clef } from './types'
+import { Clef } from '../types'
 
-function getNote(clef: Clef) {
+export function getNote(clef: Clef) {
   // this sets a random note on refresh
   const letters = [
     // some commented out to deal with fingerings, haven't decided whether to include them or not
@@ -32,4 +32,18 @@ function getNote(clef: Clef) {
   return `${letters[randomNum1]}${numbers[randomNum2]}`
 }
 
-export default getNote
+export function getStaffBeginning(clef: Clef) {
+  // transforms the clef into the correct name for musicNotes.ts
+  return `${clef}ClefWithStaff`
+}
+
+export function unselectButton(prevState: string[], text: string) {
+  return [...prevState.filter((button) => button !== text)]
+}
+
+export function selectButton(prevState: string[], text: string) {
+  return [...prevState, text].sort(
+    // this sorting algorithm puts T first, then numbers in ascending order
+    (a, b) => (a.charCodeAt(0) > 65 ? -1 : parseInt(a, 10) - parseInt(b, 10)),
+  )
+}
