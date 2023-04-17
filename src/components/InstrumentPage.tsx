@@ -58,6 +58,7 @@ export default function InstrumentPage<T extends Record<string, string[]>>({
           musicNotes[`${clef}${note}` as keyof typeof musicNotes] +
           musicNotes.staffEnd}
       </p>
+      <img className="image" src="../../horn-valves.svg" alt="horn-valves" />
       <div className="buttons">
         {valves.map((valve) => (
           // for each valve, have to come up with something different for woodwinds)
