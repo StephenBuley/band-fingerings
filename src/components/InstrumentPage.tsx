@@ -11,9 +11,12 @@ import {
   unselectButton,
 } from '../helpers/functions'
 
-export default function InstrumentPage<
-  T extends { [index: string]: string[] },
->({ name, clef, valves, fingeringSet }: InstrumentPageProps<T>) {
+export default function InstrumentPage<T extends Record<string, string[]>>({
+  name,
+  clef,
+  valves,
+  fingeringSet,
+}: InstrumentPageProps<T>) {
   const [note, setNote] = useState('')
   const [selected, setSelected] = useState<string[]>([])
   const [displayText, setDisplayText] = useState('')
@@ -79,7 +82,7 @@ export default function InstrumentPage<
         fingering={fingeringSet}
       />
       <Button
-        text="Reset"
+        text="Next Question!"
         type="action"
         handleActionButtonClick={askQuestion}
         selected={selected}
