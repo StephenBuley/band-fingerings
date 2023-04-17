@@ -40,9 +40,11 @@ export interface ButtonProps<T> {
   fingering: T
 }
 
+export type Clef = 'treble' | 'bass'
+
 export interface InstrumentPageProps<T> {
   name: string
-  clef: 'treble' | 'bass'
+  clef: Clef
   valves: string[]
   fingeringSet: T
 }

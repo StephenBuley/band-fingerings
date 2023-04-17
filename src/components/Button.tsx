@@ -1,6 +1,6 @@
 /* eslint-disable */
 import './Button.css'
-import { ButtonProps } from '../helpers/types'
+import { ButtonProps } from '../types'
 
 function Button<T>({
   text,
