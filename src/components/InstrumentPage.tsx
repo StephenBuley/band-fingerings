@@ -10,6 +10,8 @@ import {
   selectButton,
   unselectButton,
 } from '../helpers/functions'
+import HornFingerValve from './HornFingerValve'
+import HornThumbValve from './HornThumbValve'
 
 export default function InstrumentPage<T extends Record<string, string[]>>({
   name,
@@ -58,47 +60,15 @@ export default function InstrumentPage<T extends Record<string, string[]>>({
           musicNotes[`${clef}${note}` as keyof typeof musicNotes] +
           musicNotes.staffEnd}
       </p>
-      <svg
-        width="400"
-        height="150"
-        viewBox="0 0 400 150"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <ellipse
-          id="Ellipse 1"
-          cx="148.5"
-          cy="75"
-          rx="40.5"
-          ry="75"
-          fill="#D9D9D9"
-        />
-        <ellipse
-          id="Ellipse 3"
-          cx="254"
-          cy="75"
-          rx="41"
-          ry="75"
-          fill="#D9D9D9"
-        />
-        <ellipse
-          id="Ellipse 2"
-          cx="359.5"
-          cy="75"
-          rx="40.5"
-          ry="75"
-          fill="#D9D9D9"
-        />
-        <path
-          id="Line 1"
-          d="M52.6316 129.938L53.554 122.571C57.8377 88.3556 34.116 56.9165 5.62001e-06 51.5943L29.8123 43.3982C53.1608 36.9792 83.0958 40.8453 81.5624 64.9879C80.267 85.3841 67.9483 110.681 52.6316 129.938Z"
-          fill="#D9D9D9"
-        />
-      </svg>
-
+      <div className="valves">
+        <HornThumbValve />
+        <HornFingerValve valveNumber={1} />
+        <HornFingerValve valveNumber={2} />
+        <HornFingerValve valveNumber={3} />
+      </div>
       <div className="buttons">
         {valves.map((valve) => (
-          // for each valve, have to come up with something different for woodwinds)
+          // for each valve, have to come up with something different for woodwinds
           // create a button that has the text value from the valve array
           // with a type of input, tab index of index + 1 for 1 through length of array
           // and correct handleFingeringClick and selected prop values

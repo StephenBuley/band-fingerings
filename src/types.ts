@@ -48,3 +48,6 @@ export interface InstrumentPageProps<T> {
   valves: string[]
   fingeringSet: T
 }
+export interface HornFingerValveProps {
+  valveNumber: number
+}

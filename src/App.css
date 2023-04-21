@@ -23,6 +23,13 @@ body {
   font-size: 48px;
 }
 
-.image {
-  width: 10rem;
+.svg {
+  width: 2rem;
+  height: auto;
+}
+
+.valves {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
 }
