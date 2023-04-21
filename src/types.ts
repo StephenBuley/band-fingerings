@@ -1,4 +1,4 @@
-type ThreeValveFingering = {
+export type ThreeValveFingering = {
   '': string[]
   1: string[]
   2: string[]

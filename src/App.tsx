@@ -14,6 +14,10 @@ function App() {
       <Link to="/euphonium" tabIndex={0}>
         Euphonium
       </Link>
+      <br />
+      <Link to="/trumpet" tabIndex={0}>
+        Trumpet
+      </Link>
       <p>Other instruments coming soon!</p>
     </div>
   )
