@@ -33,10 +33,7 @@ export type EuphoniumFingering = ThreeValveFingering & {
 
 export interface ButtonProps<T> {
   text: string
-  type: 'input' | 'action'
-  handleFingeringClick?: (text: string) => void
-  handleActionButtonClick?: (fingering: T) => void | (() => void)
-  selected: string[]
+  handleActionButtonClick: (fingering: T) => void | (() => void)
   fingering: T
 }
 
@@ -45,9 +42,12 @@ export type Clef = 'treble' | 'bass'
 export interface InstrumentPageProps<T> {
   name: string
   clef: Clef
-  valves: string[]
+  valveSet: JSX.Element[]
   fingeringSet: T
 }
-export interface HornFingerValveProps {
-  valveNumber: number
+export interface HornValveProps {
+  valve: string
+  // these are optional because they need to be set halfway down the tree
+  handleFingeringClick?: (text: string) => void
+  selected?: string[]
 }

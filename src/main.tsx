@@ -9,6 +9,8 @@ import {
   FrenchHornFingering,
   ThreeValveFingering,
 } from './types'
+import HornThumbValve from './components/HornThumbValve'
+import HornFingerValve from './components/HornFingerValve'
 
 const router = createBrowserRouter([
   {
@@ -22,7 +24,12 @@ const router = createBrowserRouter([
         name="French Horn"
         clef="treble"
         fingeringSet={fhorn}
-        valves={['T', '1', '2', '3']}
+        valveSet={[
+          <HornThumbValve key={0} valve="T" />,
+          <HornFingerValve key={1} valve="1" />,
+          <HornFingerValve key={2} valve="2" />,
+          <HornFingerValve key={3} valve="3" />,
+        ]}
       />
     ),
   },
@@ -33,7 +40,7 @@ const router = createBrowserRouter([
         name="Euphonium"
         clef="bass"
         fingeringSet={euphonium}
-        valves={['1', '2', '3', '4']}
+        valveSet={[]}
       />
     ),
   },
@@ -44,7 +51,7 @@ const router = createBrowserRouter([
         name="Trumpet"
         clef="treble"
         fingeringSet={trumpet}
-        valves={['1', '2', '3']}
+        valveSet={[]}
       />
     ),
   },

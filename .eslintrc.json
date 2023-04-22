@@ -25,6 +25,8 @@
     "no-use-before-define": "off",
     "import/extensions": ["error", "never"],
     "react/jsx-one-expression-per-line": "off",
+    "no-unused-expressions": "off",
+    "@typescript-eslint/no-unused-expressions": "off",
     "react/jsx-no-bind": [
       "error",
       {
