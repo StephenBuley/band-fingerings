@@ -45,7 +45,7 @@ export interface InstrumentPageProps<T> {
   valveSet: JSX.Element[]
   fingeringSet: T
 }
-export interface HornValveProps {
+export interface ValveProps {
   valve: string
   // these are optional because they need to be set halfway down the tree
   handleFingeringClick?: (text: string) => void

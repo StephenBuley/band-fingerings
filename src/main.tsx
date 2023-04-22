@@ -11,6 +11,7 @@ import {
 } from './types'
 import HornThumbValve from './components/HornThumbValve'
 import HornFingerValve from './components/HornFingerValve'
+import BrassValve from './components/BrassValve'
 
 const router = createBrowserRouter([
   {
@@ -24,12 +25,10 @@ const router = createBrowserRouter([
         name="French Horn"
         clef="treble"
         fingeringSet={fhorn}
-        valveSet={[
-          <HornThumbValve key={0} valve="T" />,
-          <HornFingerValve key={1} valve="1" />,
-          <HornFingerValve key={2} valve="2" />,
-          <HornFingerValve key={3} valve="3" />,
-        ]}
+        valveSet={['T', '1', '2', '3'].map((valve) => {
+          if (valve === 'T') return <HornThumbValve key={valve} valve={valve} />
+          return <HornFingerValve key={valve} valve={valve} />
+        })}
       />
     ),
   },
@@ -40,7 +39,9 @@ const router = createBrowserRouter([
         name="Euphonium"
         clef="bass"
         fingeringSet={euphonium}
-        valveSet={[]}
+        valveSet={['1', '2', '3', '4'].map((valve) => (
+          <BrassValve key={valve} valve={valve} />
+        ))}
       />
     ),
   },
@@ -51,7 +52,9 @@ const router = createBrowserRouter([
         name="Trumpet"
         clef="treble"
         fingeringSet={trumpet}
-        valveSet={[]}
+        valveSet={['1', '2', '3'].map((valve) => (
+          <BrassValve key={valve} valve={valve} />
+        ))}
       />
     ),
   },

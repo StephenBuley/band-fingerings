@@ -1,10 +1,10 @@
-import { HornValveProps } from '../types'
+import { ValveProps } from '../types'
 
 export default function HornFingerValve({
   valve,
   handleFingeringClick,
   selected,
-}: HornValveProps) {
+}: ValveProps) {
   function onClick() {
     handleFingeringClick?.(valve)
   }
