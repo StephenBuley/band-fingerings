@@ -4,26 +4,17 @@ import { ButtonProps } from '../types'
 
 function Button<T>({
   text,
-  type,
-  handleFingeringClick,
   handleActionButtonClick,
-  selected,
   fingering,
 }: ButtonProps<T>) {
+  function onClick() {
+    handleActionButtonClick(fingering)
+  }
+
   return (
-    <div
-      onClick={() => {
-        type === 'action'
-          ? handleActionButtonClick?.(fingering)
-          : handleFingeringClick?.(text)
-      }}
-      className={`btn ${type === 'action' && 'btn-submit'} ${
-        selected.includes(text) && 'selected'
-      }`}
-      tabIndex={0}
-    >
+    <button onClick={onClick} className="btn btn-submit" tabIndex={0}>
       {text}
-    </div>
+    </button>
   )
 }
 

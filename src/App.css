@@ -12,13 +12,24 @@ body {
   margin: 8px;
 }
 
-.buttons {
-  margin-top: 20px;
-  display: flex;
-  gap: 4px;
-}
-
 .music-notation {
   font-family: 'Bravura Text';
   font-size: 48px;
+}
+
+.svg {
+  fill: none;
+  width: 2rem;
+  height: auto;
+}
+
+.valves {
+  display: flex;
+  margin-top: 1.25rem;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.selected {
+  fill: lightseagreen;
 }

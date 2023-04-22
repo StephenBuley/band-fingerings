@@ -3,8 +3,15 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App'
 import InstrumentPage from './components/InstrumentPage'
-import { euphonium, fhorn } from './helpers/fingerings'
-import { EuphoniumFingering, FrenchHornFingering } from './types'
+import { euphonium, fhorn, trumpet } from './helpers/fingerings'
+import {
+  EuphoniumFingering,
+  FrenchHornFingering,
+  ThreeValveFingering,
+} from './types'
+import HornThumbValve from './components/HornThumbValve'
+import HornFingerValve from './components/HornFingerValve'
+import BrassValve from './components/BrassValve'
 
 const router = createBrowserRouter([
   {
@@ -18,7 +25,10 @@ const router = createBrowserRouter([
         name="French Horn"
         clef="treble"
         fingeringSet={fhorn}
-        valves={['T', '1', '2', '3']}
+        valveSet={['T', '1', '2', '3'].map((valve) => {
+          if (valve === 'T') return <HornThumbValve key={valve} valve={valve} />
+          return <HornFingerValve key={valve} valve={valve} />
+        })}
       />
     ),
   },
@@ -29,7 +39,22 @@ const router = createBrowserRouter([
         name="Euphonium"
         clef="bass"
         fingeringSet={euphonium}
-        valves={['1', '2', '3', '4']}
+        valveSet={['1', '2', '3', '4'].map((valve) => (
+          <BrassValve key={valve} valve={valve} />
+        ))}
+      />
+    ),
+  },
+  {
+    path: '/trumpet',
+    element: (
+      <InstrumentPage<ThreeValveFingering>
+        name="Trumpet"
+        clef="treble"
+        fingeringSet={trumpet}
+        valveSet={['1', '2', '3'].map((valve) => (
+          <BrassValve key={valve} valve={valve} />
+        ))}
       />
     ),
   },

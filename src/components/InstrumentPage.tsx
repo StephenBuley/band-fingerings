@@ -3,18 +3,19 @@ import { Link } from 'react-router-dom'
 import { InstrumentPageProps } from '../types'
 import Button from './Button'
 import musicNotes from '../helpers/musicNotes'
-import { fhorn } from '../helpers/fingerings'
 import {
   getNote,
   getStaffBeginning,
   selectButton,
   unselectButton,
 } from '../helpers/functions'
+// import HornFingerValve from './HornFingerValve'
+// import HornThumbValve from './HornThumbValve'
 
 export default function InstrumentPage<T extends Record<string, string[]>>({
   name,
   clef,
-  valves,
+  valveSet,
   fingeringSet,
 }: InstrumentPageProps<T>) {
   const [note, setNote] = useState('')
@@ -58,34 +59,28 @@ export default function InstrumentPage<T extends Record<string, string[]>>({
           musicNotes[`${clef}${note}` as keyof typeof musicNotes] +
           musicNotes.staffEnd}
       </p>
-      <div className="buttons">
-        {valves.map((valve) => (
-          // for each valve, have to come up with something different for woodwinds)
-          // create a button that has the text value from the valve array
-          // with a type of input, tab index of index + 1 for 1 through length of array
-          // and correct handleFingeringClick and selected prop values
-          <Button
-            key={valve}
-            text={valve}
-            type="input"
-            handleFingeringClick={selectFinger}
-            selected={selected}
-            fingering={fhorn}
-          />
-        ))}
+      <div className="valves">
+        {valveSet.map((valve) => ({
+          ...valve,
+          props: {
+            ...valve.props,
+            handleFingeringClick: selectFinger,
+            selected,
+          },
+        }))}
+        {/* <HornThumbValve />
+        <HornFingerValve valveNumber={1} />
+        <HornFingerValve valveNumber={2} />
+        <HornFingerValve valveNumber={3} /> */}
       </div>
       <Button
         text="Check Answer"
-        type="action"
         handleActionButtonClick={checkAnswer}
-        selected={selected}
         fingering={fingeringSet}
       />
       <Button
         text="Next Question!"
-        type="action"
         handleActionButtonClick={askQuestion}
-        selected={selected}
         fingering={fingeringSet}
       />
       <div className="display">{displayText}</div>
