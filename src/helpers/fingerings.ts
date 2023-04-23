@@ -45,7 +45,7 @@ export const trumpet: ThreeValveFingering = {
   '': ['C4', 'G4', 'C5', 'E5', 'G5'],
   1: ['Bb3', 'F4', 'Bb4', 'D5', 'F5', 'As3', 'As4'],
   2: ['B3', 'Fs4', 'B4', 'Ds5', 'Fs5', 'Gb4', 'Eb5', 'Gb5'],
-  3: ['E4', 'A4', 'E5'], // continue filling in trumpet notes
+  3: ['E4', 'A4', 'E5'],
   12: ['E4', 'A4', 'E5', 'Cs5', 'Db5'],
   23: ['Eb4', 'Ab4', 'Ds4', 'Gs4'],
   13: ['D4'],

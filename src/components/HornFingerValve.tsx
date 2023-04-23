@@ -1,3 +1,5 @@
+import { BaseSyntheticEvent } from 'react'
+import { isKeyEvent } from '../helpers/functions'
 import { ValveProps } from '../types'
 
 export default function HornFingerValve({
@@ -5,14 +7,22 @@ export default function HornFingerValve({
   handleFingeringClick,
   selected,
 }: ValveProps) {
-  function onClick() {
-    handleFingeringClick?.(valve)
+  function onClick(e: BaseSyntheticEvent) {
+    if (isKeyEvent(e)) {
+      if (e.key === 'Enter') {
+        handleFingeringClick?.(valve)
+      }
+    } else {
+      handleFingeringClick?.(valve)
+    }
   }
 
   return (
     <svg
       className={`svg ${selected?.includes(valve) && 'selected'}`}
       onClick={onClick}
+      onKeyDown={onClick}
+      tabIndex={0}
       width="80"
       height="150"
       viewBox="0 0 80 150"

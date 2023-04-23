@@ -1,4 +1,3 @@
-/* eslint-disable */
 import './Button.css'
 import { ButtonProps } from '../types'
 
@@ -12,7 +11,12 @@ function Button<T>({
   }
 
   return (
-    <button onClick={onClick} className="btn btn-submit" tabIndex={0}>
+    <button
+      type="submit"
+      onClick={onClick}
+      className="btn btn-submit"
+      tabIndex={0}
+    >
       {text}
     </button>
   )

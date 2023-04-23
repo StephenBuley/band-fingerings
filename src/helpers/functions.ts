@@ -1,3 +1,4 @@
+import { BaseSyntheticEvent, KeyboardEvent } from 'react'
 import { Clef } from '../types'
 
 export function getNote(clef: Clef) {
@@ -46,4 +47,8 @@ export function selectButton(prevState: string[], text: string) {
     // this sorting algorithm puts T first, then numbers in ascending order
     (a, b) => (a.charCodeAt(0) > 65 ? -1 : parseInt(a, 10) - parseInt(b, 10)),
   )
+}
+
+export function isKeyEvent(e: BaseSyntheticEvent): e is KeyboardEvent {
+  return (e as KeyboardEvent).key !== undefined
 }
