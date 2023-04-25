@@ -10,14 +10,18 @@ const musicNoteComponents = {
   u4: '', // U+EB93
   u5: '', // U+EB94
   u6: '', // U+EB95
+  u7: '', // U+EB96
+  u8: '', // U+EB97
   d1: '', // U+EB98
-  '-': '-', // -
-  '=': '=', // =
   d2: '', // U+EB99
   d3: '', // U+EB9A
   d4: '', // U+EB9B
   d5: '', // U+EB9C
   d6: '', // U+EB9D
+  d7: '', // U+EB9E
+  d8: '', // U+EB9F
+  '-': '-', // -
+  '=': '=', // =
   leger: '', // U+E022
   _: ' ', // space
   treble: '', // U+E050
@@ -41,6 +45,11 @@ const musicNotes = {
   trebleClefWithStaff: encode('staff treble staff - = staff'),
   bassClefWithStaff: encode('staff bass staff - = staff'),
   staffEnd: encode('- staff - = barline'),
+  trebleAb3: encode('d8 b - _ d6 leger d8 leger d8 q - staff'),
+  trebleA3: encode('d6 leger d8 leger d8 q = staff'),
+  trebleAs3: encode('d8 s - _ d6 leger d8 leger d8 q - staff'),
+  trebleBb3: encode('d7 b - _ d6 leger d7 q - staff'),
+  trebleB3: encode('d6 leger d7 q = staff'),
   trebleC4: encode('d6 leger d6 q = staff'),
   trebleCs4: encode('d6 s - _ d6 leger d6 q - staff'),
   trebleDb4: encode('d5 b - _ d5 q - staff'),
@@ -73,6 +82,15 @@ const musicNotes = {
   trebleAb5: encode('u6 b - _ u6 leger u6 qd - staff'),
   trebleA5: encode('u6 leger u6 qd = staff'),
   trebleAs5: encode('u6 s - _ u6 leger u6 qd - staff'),
+  trebleBb5: encode('u7 b - _ u6 leger u7 qd - staff'),
+  trebleB5: encode('u6 leger u7 qd = staff'),
+  trebleC6: encode('u6 leger u8 leger u8 qd = staff'),
+  trebleCs6: encode('u8 s - _ u6 leger u8 leger u8 qd - staff'),
+  bassC2: encode('d6 leger d8 leger d8 q = staff'),
+  bassCs2: encode('d8 s - _ d6 leger d8 leger d8 q - staff'),
+  bassDb2: encode('d7 b - _ d6 leger d7 q - staff'),
+  bassD2: encode('d6 leger d7 q = staff'),
+  bassDs2: encode('d7 s - _ d6 leger d7 q - staff'),
   bassEb2: encode('d6 b - _ d6 leger d6 q - staff'),
   bassE2: encode('d6 leger d6 q = staff'),
   bassF2: encode('d5 q = staff'),
@@ -103,7 +121,12 @@ const musicNotes = {
   bassBb3: encode('u5 b - _ u5 qd - staff'),
   bassB3: encode('u5 qd = staff'),
   bassC4: encode('u6 leger u6 qd = staff'),
-  bassCs4: encode('u6 s - _ u6 leger u6 qd = staff'),
+  bassCs4: encode('u6 s - _ u6 leger u6 qd - staff'),
+  bassDb4: encode('u7 b - _ u6 leger u7 qd - staff'),
+  bassD4: encode('u6 leger u7 qd = staff'),
+  bassDs4: encode('u7 s - _ u6 leger u7 qd - staff'),
+  bassEb4: encode('u8 b - _ u6 leger u8 leger u8 qd - staff'),
+  bassE4: encode('u6 leger u8 leger u8 qd = staff'),
 }
 
 export default musicNotes

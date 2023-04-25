@@ -17,6 +17,7 @@ export default function InstrumentPage<T extends Record<string, string[]>>({
   clef,
   valveSet,
   fingeringSet,
+  availableNotes,
 }: InstrumentPageProps<T>) {
   const [note, setNote] = useState('')
   const [selected, setSelected] = useState<string[]>([])
@@ -27,7 +28,7 @@ export default function InstrumentPage<T extends Record<string, string[]>>({
   }, [])
 
   function askQuestion() {
-    setNote(getNote(clef))
+    setNote(getNote(availableNotes))
     setDisplayText('')
     setSelected([])
   }

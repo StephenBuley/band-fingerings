@@ -44,6 +44,7 @@ export interface InstrumentPageProps<T> {
   clef: Clef
   valveSet: JSX.Element[]
   fingeringSet: T
+  availableNotes: string[]
 }
 export interface ValveProps {
   valve: string
