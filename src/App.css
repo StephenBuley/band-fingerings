@@ -3,6 +3,21 @@
   font-style: normal;
   src: local('Bravura Text'), url(./fonts/BravuraText.otf) format('opentype');
 }
+
+*::after,
+*::before,
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --light-primary: #dee1e7;
+  --light-secondary: #b5c5d7;
+  --light-accent: #70b2bc;
+  --dark-accent: #4d5871;
+  --dark-primary: #39393f;
+}
+
 html {
   font-size: 16px;
 }
@@ -31,5 +46,5 @@ body {
 }
 
 .selected {
-  fill: lightseagreen;
+  fill: var(--light-accent);
 }
