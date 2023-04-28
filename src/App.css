@@ -13,18 +13,26 @@
 :root {
   --light-primary: #dee1e7;
   --light-secondary: #b5c5d7;
-  --light-accent: #70b2bc;
+  --light-accent: #70b29c;
   --dark-accent: #4d5871;
   --dark-primary: #39393f;
 }
 
 html {
   font-size: 16px;
+  font-family: 'Urbanist', sans-serif;
 }
 
 body {
   box-sizing: border-box;
   margin: 8px;
+  background-color: var(--light-primary);
+  color: var(--dark-primary);
+}
+
+.title,
+.section-heading {
+  font-weight: 400;
 }
 
 .music-notation {
@@ -47,4 +55,8 @@ body {
 
 .selected {
   fill: var(--light-accent);
+}
+
+a {
+  color: var(--dark-accent);
 }
