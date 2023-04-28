@@ -11,11 +11,11 @@
 }
 
 :root {
-  --light-primary: #dee1e7;
-  --light-secondary: #b5c5d7;
-  --light-accent: #70b29c;
-  --dark-accent: #4d5871;
-  --dark-primary: #39393f;
+  --lighter-green: #b4e1c6;
+  --light-text: #e3e3e4;
+  --accent: #04a97b;
+  --dark-green: #404142;
+  --darker-green: #283241;
 }
 
 html {
@@ -26,8 +26,8 @@ html {
 body {
   box-sizing: border-box;
   margin: 8px;
-  background-color: var(--light-primary);
-  color: var(--dark-primary);
+  background-color: var(--darker-green);
+  color: var(--light-text);
 }
 
 .title,
@@ -46,6 +46,16 @@ body {
   height: auto;
 }
 
+.svg:focus,
+.btn:focus,
+a:focus {
+  outline: auto;
+}
+
+.svg > path {
+  stroke: var(--lighter-green);
+}
+
 .valves {
   display: flex;
   margin-top: 1.25rem;
@@ -54,9 +64,9 @@ body {
 }
 
 .selected {
-  fill: var(--light-accent);
+  fill: var(--lighter-green);
 }
 
 a {
-  color: var(--dark-accent);
+  color: var(--accent);
 }
