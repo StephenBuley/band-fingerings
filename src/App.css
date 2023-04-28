@@ -3,13 +3,36 @@
   font-style: normal;
   src: local('Bravura Text'), url(./fonts/BravuraText.otf) format('opentype');
 }
+
+*::after,
+*::before,
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --lighter-green: #b4e1c6;
+  --light-text: #e3e3e4;
+  --accent: #04a97b;
+  --dark-green: #404142;
+  --darker-green: #283241;
+}
+
 html {
   font-size: 16px;
+  font-family: 'Urbanist', sans-serif;
 }
 
 body {
   box-sizing: border-box;
   margin: 8px;
+  background-color: var(--darker-green);
+  color: var(--light-text);
+}
+
+.title,
+.section-heading {
+  font-weight: 400;
 }
 
 .music-notation {
@@ -23,6 +46,16 @@ body {
   height: auto;
 }
 
+.svg:focus,
+.btn:focus,
+a:focus {
+  outline: auto;
+}
+
+.svg > path {
+  stroke: var(--lighter-green);
+}
+
 .valves {
   display: flex;
   margin-top: 1.25rem;
@@ -31,5 +64,9 @@ body {
 }
 
 .selected {
-  fill: lightseagreen;
+  fill: var(--lighter-green);
+}
+
+a {
+  color: var(--accent);
 }
