@@ -38,6 +38,7 @@ body {
 .music-notation {
   font-family: 'Bravura Text';
   font-size: 48px;
+  margin: 2rem;
 }
 
 .svg {
@@ -49,7 +50,9 @@ body {
 .svg:focus,
 .btn:focus,
 a:focus {
-  outline: auto;
+  outline-color: var(--accent);
+  outline-style: solid;
+  outline-width: 0.1rem;
 }
 
 .svg > path {
@@ -58,7 +61,7 @@ a:focus {
 
 .valves {
   display: flex;
-  margin-top: 1.25rem;
+  margin: 1rem;
   gap: 0.5rem;
   align-items: center;
 }
@@ -69,4 +72,34 @@ a:focus {
 
 a {
   color: var(--accent);
+}
+
+.links {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.link {
+  border: 1px solid var(--accent);
+  background-color: var(--dark-green);
+  opacity: 0.9;
+  border-radius: 100px;
+  padding: 1rem;
+}
+
+.container {
+  width: 75%;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.link--navigate {
+  padding: 1rem;
 }

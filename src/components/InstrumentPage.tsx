@@ -53,8 +53,8 @@ export default function InstrumentPage<T extends Record<string, string[]>>({
   }
 
   return (
-    <div>
-      <h1 className="title">{name} Fingerings</h1>
+    <div className="container">
+      <h1 className="title">Learn 2 Play {name}</h1>
       <p className="music-notation">
         {musicNotes[getStaffBeginning(clef) as keyof typeof musicNotes] +
           musicNotes[`${clef}${note}` as keyof typeof musicNotes] +
@@ -69,10 +69,6 @@ export default function InstrumentPage<T extends Record<string, string[]>>({
             selected,
           },
         }))}
-        {/* <HornThumbValve />
-        <HornFingerValve valveNumber={1} />
-        <HornFingerValve valveNumber={2} />
-        <HornFingerValve valveNumber={3} /> */}
       </div>
       <Button
         text="Check Answer"
@@ -84,10 +80,10 @@ export default function InstrumentPage<T extends Record<string, string[]>>({
         handleActionButtonClick={askQuestion}
         fingering={fingeringSet}
       />
-      <div className="display">{displayText}</div>
-      <Link to="/" tabIndex={0}>
+      <Link className="link--navigate" to="/" tabIndex={0}>
         Back to Instrument Selection
       </Link>
+      <div className="display">{displayText}</div>
     </div>
   )
 }
