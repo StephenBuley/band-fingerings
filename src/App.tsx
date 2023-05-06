@@ -4,10 +4,8 @@ import { Link } from 'react-router-dom'
 function App() {
   return (
     <div className="container">
-      <h1 className="title">Learn 2 Play</h1>
-      <p className="subtitle">
-        Learn valve and finger combos for any band instrument!
-      </p>
+      <h1 className="title">Band Fingerings</h1>
+      <p className="subtitle">Learn fingerings for any band instrument!</p>
       <h2 className="section-heading">Select your instrument:</h2>
       <div className="links">
         <Link className="link" tabIndex={0} to="/fhorn">
