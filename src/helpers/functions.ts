@@ -3,7 +3,7 @@ import { Clef } from '../types'
 
 export function getNote(notes: string[]) {
   // this sets a random note on refresh
-  return notes[Math.floor(Math.random() * notes.length)]
+  return notes[Math.floor(Math.random() * notes.length)] || ''
 }
 
 export function getStaffBeginning(clef: Clef) {
