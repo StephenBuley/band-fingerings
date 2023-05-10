@@ -51,3 +51,14 @@ export const trumpet: ThreeValveFingering = {
   13: ['D4'],
   123: ['Cs4', 'Db4'],
 }
+
+export const tubaBbThreeValve: ThreeValveFingering = {
+  '': [],
+  1: [],
+  2: [],
+  3: [],
+  12: [],
+  23: [],
+  13: [],
+  123: [],
+}

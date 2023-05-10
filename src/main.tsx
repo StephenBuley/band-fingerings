@@ -8,7 +8,12 @@ import {
 } from 'react-router-dom'
 import App from './App'
 import InstrumentPage from './components/InstrumentPage'
-import { euphonium, fhorn, trumpet } from './helpers/fingerings'
+import {
+  euphonium,
+  fhorn,
+  trumpet,
+  tubaBbThreeValve,
+} from './helpers/fingerings'
 import {
   EuphoniumFingering,
   FrenchHornFingering,
@@ -67,6 +72,21 @@ const router = createBrowserRouter(
             <BrassValve key={valve} valve={valve} />
           ))}
           availableNotes={getAvailableNotes('Ab3', 'Cs6')}
+        />
+      }
+    />,
+    <Route
+      key="/tubaBbThreeValve"
+      path="/tubaBbThreeValve"
+      element={
+        <InstrumentPage<ThreeValveFingering>
+          name="Three Valve Bb Tuba"
+          clef="bass"
+          fingeringSet={tubaBbThreeValve}
+          valveSet={['1', '2', '3'].map((valve) => (
+            <BrassValve key={valve} valve={valve} />
+          ))}
+          availableNotes={getAvailableNotes('C2', 'E4')}
         />
       }
     />,
