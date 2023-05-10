@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { InstrumentPageProps } from '../types'
 import Button from './Button'
-import musicNotes from '../helpers/musicNotes'
+import { musicNotes } from '../helpers/musicNotes'
 import {
   getNote,
   getStaffBeginning,

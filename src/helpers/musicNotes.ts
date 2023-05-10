@@ -1,4 +1,4 @@
-const musicNoteComponents = {
+export const musicNoteComponents = {
   b: '', // U+E260
   s: '', // U+E262
   q: '', // U+E1D5
@@ -29,7 +29,7 @@ const musicNoteComponents = {
   barline: '', // U+E030
 }
 
-function encode(string: string) {
+export function encode(string: string) {
   const directions = string.split(' ')
   return directions.reduce((acc, value) => {
     if (Object.hasOwn(musicNoteComponents, value)) {
@@ -41,7 +41,7 @@ function encode(string: string) {
   }, '')
 }
 
-const musicNotes = {
+export const musicNotes = {
   trebleClefWithStaff: encode('staff treble staff - = staff'),
   bassClefWithStaff: encode('staff bass staff - = staff'),
   staffEnd: encode('- staff - = barline'),
@@ -128,5 +128,3 @@ const musicNotes = {
   bassEb4: encode('u8 b - _ u6 leger u8 leger u8 qd - staff'),
   bassE4: encode('u6 leger u8 leger u8 qd = staff'),
 }
-
-export default musicNotes
