@@ -8,16 +8,17 @@ function App() {
       <p className="subtitle">Learn fingerings for any band instrument!</p>
       <h2 className="section-heading">Select your instrument:</h2>
       <div className="links">
-        <Link className="link" tabIndex={0} to="/fhorn">
+        <Link className="link" to="/fhorn" tabIndex={0}>
           French Horn
         </Link>
-        <br />
         <Link className="link" to="/euphonium" tabIndex={0}>
           Euphonium
         </Link>
-        <br />
         <Link className="link" to="/trumpet" tabIndex={0}>
           Trumpet
+        </Link>
+        <Link className="link" to="/tubaBbThreeValve" tabIndex={0}>
+          Three Valve Bb Tuba
         </Link>
       </div>
       <p>Other instruments are coming soon!</p>
