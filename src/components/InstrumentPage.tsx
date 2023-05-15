@@ -9,8 +9,6 @@ import {
   selectButton,
   unselectButton,
 } from '../helpers/functions'
-// import HornFingerValve from './HornFingerValve'
-// import HornThumbValve from './HornThumbValve'
 
 export default function InstrumentPage<T extends Record<string, string[]>>({
   name,

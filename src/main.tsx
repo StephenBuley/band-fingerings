@@ -12,10 +12,11 @@ import {
   euphonium,
   fhorn,
   trumpet,
+  tubaBbFourValve,
   tubaBbThreeValve,
 } from './helpers/fingerings'
 import {
-  EuphoniumFingering,
+  FourValveFingering,
   FrenchHornFingering,
   ThreeValveFingering,
 } from './types'
@@ -49,7 +50,7 @@ const router = createBrowserRouter(
       key="/euphonium"
       path="/euphonium"
       element={
-        <InstrumentPage<EuphoniumFingering>
+        <InstrumentPage<FourValveFingering>
           name="Euphonium"
           clef="bass"
           fingeringSet={euphonium}
@@ -87,6 +88,21 @@ const router = createBrowserRouter(
             <BrassValve key={valve} valve={valve} />
           ))}
           availableNotes={getAvailableNotes('C2', 'Bb3')}
+        />
+      }
+    />,
+    <Route
+      key="/tubBbFourValve"
+      path="/tubaBbFourValve"
+      element={
+        <InstrumentPage<FourValveFingering>
+          name="Four Valve Bb Tuba"
+          clef="bass"
+          fingeringSet={tubaBbFourValve}
+          valveSet={['1', '2', '3', '4'].map((valve) => (
+            <BrassValve key={valve} valve={valve} />
+          ))}
+          availableNotes={getAvailableNotes('C2', 'E4')}
         />
       }
     />,

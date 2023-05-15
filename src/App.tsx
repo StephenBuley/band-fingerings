@@ -20,6 +20,9 @@ function App() {
         <Link className="link" to="/tubaBbThreeValve" tabIndex={0}>
           Three Valve Bb Tuba
         </Link>
+        <Link className="link" to="/tubaBbFourValve" tabIndex={0}>
+          Four Valve Bb Tuba
+        </Link>
       </div>
       <p>Other instruments are coming soon!</p>
     </div>

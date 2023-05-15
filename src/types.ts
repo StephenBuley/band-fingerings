@@ -20,7 +20,7 @@ export type FrenchHornFingering = ThreeValveFingering & {
   T123: string[]
 }
 
-export type EuphoniumFingering = ThreeValveFingering & {
+export type FourValveFingering = ThreeValveFingering & {
   4: string[]
   14: string[]
   24: string[]
