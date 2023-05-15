@@ -5,7 +5,7 @@ import {
 } from '../types'
 
 export const fhorn: FrenchHornFingering = {
-  '': ['C4', 'E4', 'G4', 'G3', 'C3'], // this is for open fingerings
+  '': ['C4', 'E4', 'G4', 'G3', 'C3'],
   1: ['D4', 'F4', 'Bb3', 'As3', 'F3'],
   2: ['Eb4', 'Gb4', 'Fs4', 'Ds4', 'B3', 'Fs3', 'Gb3'],
   3: ['A3', 'E3'],
@@ -23,7 +23,7 @@ export const fhorn: FrenchHornFingering = {
   T123: [],
 }
 export const euphonium: FourValveFingering = {
-  '': ['F3', 'Bb3', 'As3', 'Bb2', 'As2', 'D4'], // this is for open fingerings
+  '': ['F3', 'Bb3', 'As3', 'Bb2', 'As2', 'D4'],
   1: ['Eb3', 'Ab3', 'C4', 'Ds3', 'Gs3', 'Gs2', 'Ab2', 'Ds4', 'Eb4'],
   2: ['E3', 'A3', 'A2', 'Cs4', 'Db4', 'E4'],
   3: ['D3', 'G3', 'G2'],
@@ -64,15 +64,28 @@ export const tubaBbThreeValve: ThreeValveFingering = {
 }
 
 export const tubaBbFourValve: FourValveFingering = {
-  '': [], // this is for open fingerings
-  1: [],
-  2: [],
-  3: [],
-  12: [],
-  23: [],
-  13: [],
+  '': ['F2', 'As2', 'Bb2', 'D3', 'F3', 'As3', 'Bb3', 'C4', 'D4'],
+  1: [
+    'Ds2',
+    'Eb2',
+    'Gs2',
+    'Ab2',
+    'C3',
+    'Ds3',
+    'Eb3',
+    'Gs3',
+    'Ab3',
+    'C4',
+    'Ds4',
+    'Eb4',
+  ],
+  2: ['E2', 'A2', 'Cs3', 'Db3', 'E3', 'A3', 'B3', 'Cs4', 'Db4', 'E4'],
+  3: ['D2', 'G2', 'G3'],
+  12: ['D2', 'G2', 'B2', 'D3', 'G3', 'B3', 'D4'],
+  23: ['Cs2', 'Db2', 'Fs2', 'Gb2', 'Cs3', 'Db3', 'Fs3', 'Gb3', 'Cs4', 'Db4'],
+  13: ['C2', 'C3'],
   123: [],
-  4: [],
+  4: ['C2'],
   14: [],
   24: [],
   34: [],
