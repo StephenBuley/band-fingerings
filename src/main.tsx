@@ -11,6 +11,7 @@ import InstrumentPage from './components/InstrumentPage'
 import {
   euphonium,
   fhorn,
+  trombone,
   trumpet,
   tubaBbFourValve,
   tubaBbThreeValve,
@@ -19,6 +20,7 @@ import {
   FourValveFingering,
   FrenchHornFingering,
   ThreeValveFingering,
+  TromboneSlidePosition,
 } from './types'
 import HornThumbValve from './components/HornThumbValve'
 import HornFingerValve from './components/HornFingerValve'
@@ -100,6 +102,21 @@ const router = createBrowserRouter(
           clef="bass"
           fingeringSet={tubaBbFourValve}
           valveSet={['1', '2', '3', '4'].map((valve) => (
+            <BrassValve key={valve} valve={valve} />
+          ))}
+          availableNotes={getAvailableNotes('C2', 'E4')}
+        />
+      }
+    />,
+    <Route
+      key="/trombone"
+      path="/trombone"
+      element={
+        <InstrumentPage<TromboneSlidePosition>
+          name="Trombone"
+          clef="bass"
+          fingeringSet={trombone}
+          valveSet={['1', '2', '3', '4', '5', '6', '7'].map((valve) => (
             <BrassValve key={valve} valve={valve} />
           ))}
           availableNotes={getAvailableNotes('C2', 'E4')}
