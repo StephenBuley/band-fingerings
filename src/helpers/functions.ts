@@ -1,4 +1,4 @@
-import { BaseSyntheticEvent, KeyboardEvent } from 'react'
+import { BaseSyntheticEvent, KeyboardEvent, ChangeEvent } from 'react'
 import { Clef } from '../types'
 
 export function getNote(notes: string[]) {
@@ -24,6 +24,23 @@ export function selectButton(prevState: string[], text: string) {
 
 export function isKeyEvent(e: BaseSyntheticEvent): e is KeyboardEvent {
   return (e as KeyboardEvent).key !== undefined
+}
+
+export function hasValue(target: EventTarget): target is HTMLInputElement {
+  return (target as HTMLInputElement).value !== undefined
+}
+
+export function roundSlideValue(value: string | number) {
+  const num = typeof value === 'string' ? parseInt(value) : value
+  return Math.round(num / 10) * 10
+}
+
+export function snapSlideValue(e: React.MouseEvent | React.TouchEvent) {
+  if (hasValue(e.target)) {
+    const curr = e.target.value
+    return roundSlideValue(curr)
+  }
+  return 0
 }
 
 export function getAvailableNotes(

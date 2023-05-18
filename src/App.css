@@ -66,6 +66,10 @@ a:focus {
   align-items: center;
 }
 
+.valves:has(#slide) {
+  flex-direction: column;
+}
+
 .selected {
   fill: var(--lighter-green);
 }

@@ -9,6 +9,7 @@ import {
   selectButton,
   unselectButton,
 } from '../helpers/functions'
+import Slide from './Slide'
 
 export default function InstrumentPage<T extends Record<string, string[]>>({
   name,
@@ -59,14 +60,18 @@ export default function InstrumentPage<T extends Record<string, string[]>>({
           musicNotes.staffEnd}
       </p>
       <div className="valves">
-        {valveSet.map((valve) => ({
-          ...valve,
-          props: {
-            ...valve.props,
-            handleFingeringClick: selectFinger,
-            selected,
-          },
-        }))}
+        {name !== 'Trombone' ? (
+          valveSet.map((valve) => ({
+            ...valve,
+            props: {
+              ...valve.props,
+              handleFingeringClick: selectFinger,
+              selected,
+            },
+          }))
+        ) : (
+          <Slide />
+        )}
       </div>
       <Button
         text="Check Answer"
