@@ -97,11 +97,11 @@ export const tubaBbFourValve: FourValveFingering = {
 }
 
 export const trombone: TromboneSlidePosition = {
-  1: [],
-  2: [],
-  3: [],
-  4: [],
-  5: [],
-  6: [],
-  7: [],
+  1: ['Bb2', 'F3', 'Bb3', 'D4', 'F4', 'As2', 'As3'],
+  2: ['A2', 'E3', 'A3', 'Cs4', 'E4'],
+  3: ['Ab2', 'Eb3', 'Ab3', 'C4', 'Eb4', 'Gs2', 'Ds3', 'Gs3', 'Ds4'],
+  4: ['G2', 'D3', 'G3', 'B3', 'D4'],
+  5: ['Gb2', 'Db3', 'Gb3', 'Bb3', 'Db4', 'Fs2', 'Cs3', 'Fs3', 'As3', 'Cs3'],
+  6: ['F2', 'C3', 'F3', 'A3', 'C4'],
+  7: ['E2', 'B2', 'E3', 'Gs3', 'B3', 'E4', 'Ab3'],
 }

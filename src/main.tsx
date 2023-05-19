@@ -116,10 +116,7 @@ const router = createBrowserRouter(
           name="Trombone"
           clef="bass"
           fingeringSet={trombone}
-          valveSet={['1', '2', '3', '4', '5', '6', '7'].map((valve) => (
-            <BrassValve key={valve} valve={valve} />
-          ))}
-          availableNotes={getAvailableNotes('C2', 'E4')}
+          availableNotes={getAvailableNotes('E2', 'E4')}
         />
       }
     />,

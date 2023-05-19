@@ -52,7 +52,7 @@ export type Clef = 'treble' | 'bass'
 export interface InstrumentPageProps<T> {
   name: string
   clef: Clef
-  valveSet: JSX.Element[]
+  valveSet?: JSX.Element[]
   fingeringSet: T
   availableNotes: string[]
 }
@@ -61,4 +61,9 @@ export interface ValveProps {
   // these are optional because they need to be set halfway down the tree
   handleFingeringClick?: (text: string) => void
   selected?: string[]
+}
+
+export interface SlideProps {
+  handleSlideChange: (text: string) => void
+  selected: string[]
 }
