@@ -8,7 +8,6 @@ import {
   selectButton,
   unselectButton,
 } from './functions'
-import { BaseSyntheticEvent } from 'react'
 
 describe('functions.ts', () => {
   describe('getNote function', () => {
