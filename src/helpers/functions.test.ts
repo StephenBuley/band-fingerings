@@ -8,6 +8,7 @@ import {
   selectButton,
   unselectButton,
 } from './functions'
+import { BaseSyntheticEvent } from 'react'
 
 describe('functions.ts', () => {
   describe('getNote function', () => {
@@ -78,10 +79,6 @@ describe('functions.ts', () => {
     it('returns a correctly sorted array', () => {
       expect(selectButton(['1', '2'], 'T')).toEqual(['T', '1', '2'])
     })
-  })
-
-  describe('isKeyEvent', () => {
-    it.skip('identifies a KeyboardEvent', () => {})
   })
 
   describe('getStarting selected function', () => {
