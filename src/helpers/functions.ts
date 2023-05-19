@@ -1,4 +1,4 @@
-import { BaseSyntheticEvent, KeyboardEvent, ChangeEvent } from 'react'
+import { BaseSyntheticEvent, KeyboardEvent } from 'react'
 import { Clef } from '../types'
 
 export function getNote(notes: string[]) {

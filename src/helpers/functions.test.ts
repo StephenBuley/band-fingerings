@@ -3,10 +3,12 @@ import {
   getAvailableNotes,
   getNote,
   getStaffBeginning,
+  getStartingSelected,
   isKeyEvent,
   selectButton,
   unselectButton,
 } from './functions'
+import { BaseSyntheticEvent } from 'react'
 
 describe('functions.ts', () => {
   describe('getNote function', () => {
@@ -81,6 +83,20 @@ describe('functions.ts', () => {
 
   describe('isKeyEvent', () => {
     it.skip('identifies a KeyboardEvent', () => {})
+  })
+
+  describe('getStarting selected function', () => {
+    it('returns ["1"] when Trombone is the instrument', () => {
+      expect(getStartingSelected('Trombone')).toEqual(['1'])
+    })
+
+    it('returns an empty array when any other instruments are selected', () => {
+      expect(getStartingSelected('French Horn')).toEqual([])
+    })
+
+    it('returns an empty array when an empty string is passed', () => {
+      expect(getStartingSelected('')).toEqual([])
+    })
   })
 
   describe('getAvailableNotes function', () => {
