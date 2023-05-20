@@ -124,7 +124,7 @@ a {
 }
 #slide::-webkit-slider-thumb {
   -webkit-appearance: none;
-  background-image: url('../public/TromboneSlide_.svg');
+  background-image: url('/TromboneSlide_.svg');
   width: 7rem;
   height: 1.45rem;
   background-size: cover;
@@ -137,7 +137,7 @@ a {
 #slide::-moz-range-thumb {
   width: 7rem;
   height: 1.45rem;
-  background-image: url('../public/TromboneSlide_.svg');
+  background-image: url('/TromboneSlide_.svg');
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
@@ -148,7 +148,7 @@ a {
 #slide::-ms-thumb {
   width: 7rem;
   height: 1.45rem;
-  background-image: url('../public/TromboneSlide_.svg');
+  background-image: url('/TromboneSlide_.svg');
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
