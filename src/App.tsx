@@ -26,7 +26,7 @@ function App() {
         <Link className="link" to="/trombone" tabIndex={0}>
           Trombone
         </Link>
-        <img src="../public/assets/Trombone Slide.svg" alt="trombone slide" />
+        <img src="../assets/Trombone Slide.svg" alt="trombone slide" />
       </div>
       <p>Other instruments are coming soon!</p>
     </div>
