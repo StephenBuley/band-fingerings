@@ -6,9 +6,11 @@ import { musicNotes } from '../helpers/musicNotes'
 import {
   getNote,
   getStaffBeginning,
+  getStartingSelected,
   selectButton,
   unselectButton,
 } from '../helpers/functions'
+import Slide from './Slide'
 
 export default function InstrumentPage<T extends Record<string, string[]>>({
   name,
@@ -18,7 +20,7 @@ export default function InstrumentPage<T extends Record<string, string[]>>({
   availableNotes,
 }: InstrumentPageProps<T>) {
   const [note, setNote] = useState('')
-  const [selected, setSelected] = useState<string[]>([])
+  const [selected, setSelected] = useState<string[]>(getStartingSelected(name))
   const [displayText, setDisplayText] = useState('')
 
   useEffect(() => {
@@ -28,7 +30,7 @@ export default function InstrumentPage<T extends Record<string, string[]>>({
   function askQuestion() {
     setNote(getNote(availableNotes))
     setDisplayText('')
-    setSelected([])
+    setSelected(getStartingSelected(name))
   }
 
   function selectFinger(text: string) {
@@ -40,6 +42,10 @@ export default function InstrumentPage<T extends Record<string, string[]>>({
       // the button was not selected, so we need to select it
       return selectButton(prevState, text)
     })
+  }
+
+  function handleSlideChange(text: string) {
+    setSelected([text])
   }
 
   function checkAnswer(fingering: T) {
@@ -59,14 +65,18 @@ export default function InstrumentPage<T extends Record<string, string[]>>({
           musicNotes.staffEnd}
       </p>
       <div className="valves">
-        {valveSet.map((valve) => ({
-          ...valve,
-          props: {
-            ...valve.props,
-            handleFingeringClick: selectFinger,
-            selected,
-          },
-        }))}
+        {valveSet ? (
+          valveSet.map((valve) => ({
+            ...valve,
+            props: {
+              ...valve.props,
+              handleFingeringClick: selectFinger,
+              selected,
+            },
+          }))
+        ) : (
+          <Slide handleSlideChange={handleSlideChange} selected={selected} />
+        )}
       </div>
       <Button
         text="Check Answer"

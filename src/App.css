@@ -66,6 +66,10 @@ a:focus {
   align-items: center;
 }
 
+.valves:has(#slide) {
+  flex-direction: column;
+}
+
 .selected {
   fill: var(--lighter-green);
 }
@@ -103,4 +107,50 @@ a {
 
 .link--navigate {
   padding: 1rem;
+}
+
+#slide {
+  appearance: none;
+  width: 14rem;
+  background: transparent;
+}
+
+#slide::-ms-track {
+  width: 14rem;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+#slide::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background-image: url('../assets/Trombone\ Slide_.svg');
+  width: 7rem;
+  height: 1.45rem;
+  background-size: cover;
+  background-position: unset;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+/* All the same stuff for Firefox */
+#slide::-moz-range-thumb {
+  width: 7rem;
+  height: 1.45rem;
+  background-image: url('../assets/Trombone\ Slide_.svg');
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+/* All the same stuff for IE */
+#slide::-ms-thumb {
+  width: 7rem;
+  height: 1.45rem;
+  background-image: url('../assets/Trombone\ Slide_.svg');
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  cursor: pointer;
 }

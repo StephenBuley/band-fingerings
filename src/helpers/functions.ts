@@ -26,6 +26,10 @@ export function isKeyEvent(e: BaseSyntheticEvent): e is KeyboardEvent {
   return (e as KeyboardEvent).key !== undefined
 }
 
+export function getStartingSelected(name: string) {
+  return name === 'Trombone' ? ['1'] : []
+}
+
 export function getAvailableNotes(
   lowestNote: string,
   highestNote: string,

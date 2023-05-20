@@ -31,6 +31,16 @@ export type FourValveFingering = ThreeValveFingering & {
   1234: string[]
 }
 
+export type TromboneSlidePosition = {
+  1: string[]
+  2: string[]
+  3: string[]
+  4: string[]
+  5: string[]
+  6: string[]
+  7: string[]
+}
+
 export interface ButtonProps<T> {
   text: string
   handleActionButtonClick: (fingering: T) => void | (() => void)
@@ -42,7 +52,7 @@ export type Clef = 'treble' | 'bass'
 export interface InstrumentPageProps<T> {
   name: string
   clef: Clef
-  valveSet: JSX.Element[]
+  valveSet?: JSX.Element[]
   fingeringSet: T
   availableNotes: string[]
 }
@@ -51,4 +61,9 @@ export interface ValveProps {
   // these are optional because they need to be set halfway down the tree
   handleFingeringClick?: (text: string) => void
   selected?: string[]
+}
+
+export interface SlideProps {
+  handleSlideChange: (text: string) => void
+  selected: string[]
 }

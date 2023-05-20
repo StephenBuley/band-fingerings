@@ -7,7 +7,7 @@ export default function BrassValve({
   handleFingeringClick,
   selected,
 }: ValveProps) {
-  function onClick(e: BaseSyntheticEvent) {
+  function onSubmit(e: BaseSyntheticEvent) {
     if (isKeyEvent(e)) {
       if (e.key === 'Enter') {
         handleFingeringClick?.(valve)
@@ -20,8 +20,8 @@ export default function BrassValve({
   return (
     <svg
       className={`svg ${selected?.includes(valve) && 'selected'}`}
-      onClick={onClick}
-      onKeyDown={onClick}
+      onClick={onSubmit}
+      onKeyDown={onSubmit}
       tabIndex={0}
       width="80"
       height="81"

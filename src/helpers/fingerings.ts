@@ -2,6 +2,7 @@ import {
   FourValveFingering,
   FrenchHornFingering,
   ThreeValveFingering,
+  TromboneSlidePosition,
 } from '../types'
 
 export const fhorn: FrenchHornFingering = {
@@ -83,9 +84,9 @@ export const tubaBbFourValve: FourValveFingering = {
   3: ['D2', 'G2', 'G3'],
   12: ['D2', 'G2', 'B2', 'D3', 'G3', 'B3', 'D4'],
   23: ['Cs2', 'Db2', 'Fs2', 'Gb2', 'Cs3', 'Db3', 'Fs3', 'Gb3', 'Cs4', 'Db4'],
-  13: ['C2', 'C3'],
+  13: ['C2', 'C3', 'D2'],
   123: [],
-  4: ['C2'],
+  4: ['C2', 'D2'],
   14: [],
   24: [],
   34: [],
@@ -93,4 +94,14 @@ export const tubaBbFourValve: FourValveFingering = {
   134: [],
   234: [],
   1234: [],
+}
+
+export const trombone: TromboneSlidePosition = {
+  1: ['Bb2', 'F3', 'Bb3', 'D4', 'F4', 'As2', 'As3'],
+  2: ['A2', 'E3', 'A3', 'Cs4', 'E4'],
+  3: ['Ab2', 'Eb3', 'Ab3', 'C4', 'Eb4', 'Gs2', 'Ds3', 'Gs3', 'Ds4'],
+  4: ['G2', 'D3', 'G3', 'B3', 'D4'],
+  5: ['Gb2', 'Db3', 'Gb3', 'Bb3', 'Db4', 'Fs2', 'Cs3', 'Fs3', 'As3', 'Cs3'],
+  6: ['F2', 'C3', 'F3', 'A3', 'C4'],
+  7: ['E2', 'B2', 'E3', 'Gs3', 'B3', 'E4', 'Ab3'],
 }
