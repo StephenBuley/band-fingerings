@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'Bravura Text';
   font-style: regular;
-  src: local('Bravura Text'), url(./fonts/BravuraText.otf) format('opentype');
+  src: url('./fonts/BravuraText.otf') format('opentype');
 }
 
 *::after,
