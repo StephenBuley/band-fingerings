@@ -57,15 +57,11 @@ export default function InstrumentPage<T extends Record<string, string[]>>({
   return (
     <div className="container">
       <h1 className="title">{name} Fingerings</h1>
-      {/* <p className="music-notation">
-        {musicNotes[getStaffBeginning(clef) as keyof typeof musicNotes] +
-          musicNotes[`${clef}${note}` as keyof typeof musicNotes] +
-          musicNotes.staffEnd}
-        </p> */}
       <img
         style={{
           width: '300px',
           height: '300px',
+          maskSize: '75%',
           maskImage: `url(/${note}${clef}.png)`,
           WebkitMaskImage: `url(/${note}${clef}.png)`,
           maskPosition: 'center',
