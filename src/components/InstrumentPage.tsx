@@ -62,7 +62,20 @@ export default function InstrumentPage<T extends Record<string, string[]>>({
           musicNotes[`${clef}${note}` as keyof typeof musicNotes] +
           musicNotes.staffEnd}
         </p> */}
-      <img src={`/${note}${clef}.png`} alt={`${note}${clef}`} />
+      <img
+        style={{
+          width: '300px',
+          height: '300px',
+          maskImage: `url(/${note}${clef}.png)`,
+          WebkitMaskImage: `url(/${note}${clef}.png)`,
+          maskPosition: 'center',
+          WebkitMaskPosition: 'center',
+          maskRepeat: 'no-repeat',
+          WebkitMaskRepeat: 'no-repeat',
+        }}
+        src={`/Background Mask.png`}
+        alt={`${note} ${clef}`}
+      />
       <div className="valves">
         {valveSet ? (
           valveSet.map((valve) => ({
