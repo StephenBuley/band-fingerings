@@ -2,10 +2,8 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { InstrumentPageProps } from '../types'
 import Button from './Button'
-import { musicNotes } from '../helpers/musicNotes'
 import {
   getNote,
-  getStaffBeginning,
   getStartingSelected,
   selectButton,
   unselectButton,
@@ -59,11 +57,12 @@ export default function InstrumentPage<T extends Record<string, string[]>>({
   return (
     <div className="container">
       <h1 className="title">{name} Fingerings</h1>
-      <p className="music-notation">
+      {/* <p className="music-notation">
         {musicNotes[getStaffBeginning(clef) as keyof typeof musicNotes] +
           musicNotes[`${clef}${note}` as keyof typeof musicNotes] +
           musicNotes.staffEnd}
-      </p>
+        </p> */}
+      <img src={`/${note}${clef}.png`} alt={`${note}${clef}`} />
       <div className="valves">
         {valveSet ? (
           valveSet.map((valve) => ({

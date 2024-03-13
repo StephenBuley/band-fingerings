@@ -35,11 +35,11 @@ body {
   font-weight: 400;
 }
 
-.music-notation {
+/* .music-notation {
   font-family: 'Bravura Text';
   font-size: 48px;
   margin: 2rem;
-}
+} */
 
 .svg {
   fill: none;
