@@ -46,11 +46,11 @@ export const trumpet: ThreeValveFingering = {
   '': ['C4', 'G4', 'C5', 'E5', 'G5', 'C6'],
   1: ['Bb3', 'F4', 'Bb4', 'D5', 'F5', 'As3', 'As4', 'Bb5', 'As5'],
   2: ['B3', 'Fs4', 'B4', 'Ds5', 'Fs5', 'Gb4', 'Eb5', 'Gb5', 'B5'],
-  3: ['E4', 'A4', 'E5', 'A5', 'Cs5', 'Db5'],
-  12: ['E4', 'A4', 'E5', 'A5', 'Cs5', 'Db5', 'Cs6'],
-  23: ['Eb4', 'Ab4', 'Ds4', 'Gs4', 'Ab5', 'Gs5'],
-  13: ['D4'],
-  123: ['Cs4', 'Db4'],
+  3: ['A3', 'E4', 'A4', 'E5', 'A5', 'Cs5', 'Db5'],
+  12: ['A3', 'E4', 'A4', 'E5', 'A5', 'Cs5', 'Db5', 'Cs6'],
+  23: ['Ab3', 'Gs3', 'Eb4', 'Ab4', 'Ds4', 'Gs4', 'Ab5', 'Gs5'],
+  13: ['G3', 'D4'],
+  123: ['Fs3', 'Gb3', 'Cs4', 'Db4'],
 }
 
 export const tubaBbThreeValve: ThreeValveFingering = {

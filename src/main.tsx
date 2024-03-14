@@ -44,7 +44,7 @@ const router = createBrowserRouter(
             }
             return <HornFingerValve key={valve} valve={valve} />
           })}
-          availableNotes={getAvailableNotes('Ab3', 'C6')}
+          availableNotes={getAvailableNotes('C3', 'C6')}
         />
       }
     />,
@@ -74,7 +74,7 @@ const router = createBrowserRouter(
           valveSet={['1', '2', '3'].map((valve) => (
             <BrassValve key={valve} valve={valve} />
           ))}
-          availableNotes={getAvailableNotes('Ab3', 'Cs6')}
+          availableNotes={getAvailableNotes('Fs3', 'C6')}
         />
       }
     />,
