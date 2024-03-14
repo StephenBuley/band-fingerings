@@ -59,7 +59,7 @@ const router = createBrowserRouter(
           valveSet={['1', '2', '3', '4'].map((valve) => (
             <BrassValve key={valve} valve={valve} />
           ))}
-          availableNotes={getAvailableNotes('C2', 'E4')}
+          availableNotes={getAvailableNotes('C2', 'Bb4')}
         />
       }
     />,
@@ -94,7 +94,7 @@ const router = createBrowserRouter(
       }
     />,
     <Route
-      key="/tubBbFourValve"
+      key="/tubaBbFourValve"
       path="/tubaBbFourValve"
       element={
         <InstrumentPage<FourValveFingering>
@@ -104,7 +104,7 @@ const router = createBrowserRouter(
           valveSet={['1', '2', '3', '4'].map((valve) => (
             <BrassValve key={valve} valve={valve} />
           ))}
-          availableNotes={getAvailableNotes('C2', 'E4')}
+          availableNotes={getAvailableNotes('D1', 'E4')}
         />
       }
     />,
